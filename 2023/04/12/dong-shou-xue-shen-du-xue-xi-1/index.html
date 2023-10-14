@@ -486,7 +486,7 @@ tensor([[ 0.6035,  0.8110, -0.0451],
 <pre class="line-numbers language-none"><code class="language-none">print(x.size())
 print(x.shape)
 #均为torch.Size([5,3])<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>注意：返回的torch.Size其实就是一个tuple, 支持所有tuple的操作。<br><img src="/2023/04/12/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%EF%BC%881%EF%BC%89/image1.jpg"></p>
+<p>注意：返回的torch.Size其实就是一个tuple, 支持所有tuple的操作。<br><img src="/2023/04/12/dong-shou-xue-shen-du-xue-xi-1/image1.jpg"></p>
 <h3 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h3><h4 id="算术操作"><a href="#算术操作" class="headerlink" title="算术操作"></a>算术操作</h4><p>加法形式1</p>
 <pre class="line-numbers language-none"><code class="language-none">y = torch.rand(5, 3)
 print(x + y)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
@@ -506,7 +506,7 @@ print(y)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></
 y += 1
 print(y)
 print(x[0, :]) # 源tensor也被改了<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="/2023/04/12/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%EF%BC%881%EF%BC%89/image2.jpg"></p>
+<p><img src="/2023/04/12/dong-shou-xue-shen-du-xue-xi-1/image2.jpg"></p>
 <h4 id="改变形状"><a href="#改变形状" class="headerlink" title="改变形状"></a>改变形状</h4><p>用view()来改变Tensor的形状</p>
 <pre class="line-numbers language-none"><code class="language-none">y = x.view(15)
 z = x.view(-1, 5)  # -1所指的维度可以根据其他维度的值推出来
@@ -545,7 +545,7 @@ print(x.item())<span aria-hidden="true" class="line-numbers-rows"><span></span><
 <p>输出</p>
 <pre class="line-numbers language-none"><code class="language-none">tensor([2.3466])
 2.3466382026672363<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h4 id="线性代数"><a href="#线性代数" class="headerlink" title="线性代数"></a>线性代数</h4><p><img src="/2023/04/12/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%EF%BC%881%EF%BC%89/image3.jpg"><br>PyTorch中的Tensor支持超过一百种操作，包括转置、索引、切片、数学运算、线性代数、随机数等等，可参考<a target="_blank" rel="noopener" href="https://pytorch.org/docs/stable/tensors.html">官方文档</a></p>
+<h4 id="线性代数"><a href="#线性代数" class="headerlink" title="线性代数"></a>线性代数</h4><p><img src="/2023/04/12/dong-shou-xue-shen-du-xue-xi-1/image3.jpg"><br>PyTorch中的Tensor支持超过一百种操作，包括转置、索引、切片、数学运算、线性代数、随机数等等，可参考<a target="_blank" rel="noopener" href="https://pytorch.org/docs/stable/tensors.html">官方文档</a></p>
 <h4 id="广播机制"><a href="#广播机制" class="headerlink" title="广播机制"></a>广播机制</h4><p>(之前都是相同形状运算)当对两个形状不同的Tensor按元素运算时，可能会触发广播（broadcasting）机制：先适当复制元素使这两个Tensor形状相同后再按元素运算。</p>
 <pre class="line-numbers language-none"><code class="language-none">x = torch.arange(1, 3).view(1, 2)
 print(x)
@@ -652,7 +652,7 @@ if torch.cuda.is_available():
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lwqblog.top/2023/04/12/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%EF%BC%881%EF%BC%89/">https://lwqblog.top/2023/04/12/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%EF%BC%881%EF%BC%89/</a>
+                    <a href="https://lwqblog.top/2023/04/12/dong-shou-xue-shen-du-xue-xi-1/">https://lwqblog.top/2023/04/12/dong-shou-xue-shen-du-xue-xi-1/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -788,7 +788,7 @@ if torch.cuda.is_available():
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2023/04/13/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86-%E7%AE%97%E6%B3%95/">
+                <a href="/2023/04/13/er-cha-shu-bian-li-suan-fa/">
                     <div class="card-image">
                         
                         
@@ -845,7 +845,7 @@ if torch.cuda.is_available():
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/03/29/%E7%BC%96%E8%AF%913-29/">
+                <a href="/2023/03/29/bian-yi-3-29/">
                     <div class="card-image">
                         
                         
