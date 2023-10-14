@@ -1,931 +1,1010 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
+
+
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 6.3.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
-  <script src="/lib/pace/pace.min.js"></script>
-
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
-  </script>
-
-  <meta name="description" content="我要上UT">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Codehasuki">
-<meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="Codehasuki">
-<meta property="og:description" content="我要上UT">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="寒风渐微凉">
-<meta name="twitter:card" content="summary">
-
-<link rel="canonical" href="http://example.com/">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Codehasuki">
+    <meta name="description" content="我要上UT">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : true,
-    isPost : false,
-    lang   : 'en'
-  };
-</script>
-
-  <title>Codehasuki</title>
-  
-
-
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
-
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">Codehasuki</h1>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-    </div>
-  </div>
-</div>
-
-
-
-
-<nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
-
-  </li>
-        <li class="menu-item menu-item-resources">
-
-    <a href="/resources/" rel="section"><i class="fa fa-heart fa-fw"></i>Resources</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
-
-  </li>
-  </ul>
-</nav>
-
-
-
-
-</div>
-    </header>
-
+    <title>Codehasuki</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
     
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
 
 
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
+    <!-- index cover -->
+    <!-- <link rel="stylesheet preload" type="text/css" href="/css/indexcover.css"> -->
+    <style>
+        .carousel-control {
+            width: 45px;
+            height: 45px;
+            line-height: 55px;
+            border-radius: 45px;
+            background: transparent;
+            cursor: pointer;
+            z-index: 100;
+        }
+        
+        #prev-cover {
+            position: absolute;
+            top: 48%;
+            left: 8px;
+        }
+        
+        #next-cover {
+            position: absolute;
+            top: 48%;
+            right: 8px;;
+        }
+        
+        #prev-cover i {
+            margin-right: 3px;
+        }
+        
+        #next-cover i {
+            margin-left: 3px;
+        }
+        
+        .carousel-control:hover {
+            background-color: rgba(0, 0, 0, .4);
+        }
+        
+        .carousel-control i {
+            color: #fff;
+            font-size: 2.4rem;
+        }
+    </style>
 
-          <div class="content index posts-expand">
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Codehasuki</span>
+                </a>
+            </div>
             
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
       
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>Index</span>
+    </a>
+    
+  </li>
   
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>Tags</span>
+    </a>
+    
+  </li>
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/14/%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB-VGG-1/">
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>Archives</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>About</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>Contact</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>Friends</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="寒风渐微凉">
-      <meta itemprop="description" content="我要上UT">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Codehasuki">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/10/14/%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB-VGG-1/" class="post-title-link" itemprop="url">图像分类(VGG)(1)</a>
-        </h2>
+<div id="mobile-nav" class="side-nav sidenav">
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2023-10-14 15:17:04 / Modified: 16:58:58" itemprop="dateCreated datePublished" datetime="2023-10-14T15:17:04+08:00">2023-10-14</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/DL/" itemprop="url" rel="index"><span itemprop="name">DL</span></a>
-                </span>
-            </span>
-
-          
-
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Codehasuki</div>
+        <div class="logo-desc">
+            
+            我要上UT
+            
         </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="已完成训练的VGG模型的使用方法"><a href="#已完成训练的VGG模型的使用方法" class="headerlink" title="已完成训练的VGG模型的使用方法"></a>已完成训练的VGG模型的使用方法</h1><p>使用ImageNet数据集中已经提前训练好网络参数的VGG-16模型来实现对未知图片进行自动分类处理的程序。<br>ImageNet是斯坦福大学从互联网上收集的已分类的图像数据集，ILSVRC竞赛常用（ImageNet Large Scale Visual Recognition Challenge）<br>Torch中可以轻松使用ImageNet数据集中的ILSVRC2012数据集（分类数：1000种；训练用数据：120万张；验证用数据：5万张；测试用数据：10万张）</p>
-<h2 id="文件夹准备"><a href="#文件夹准备" class="headerlink" title="文件夹准备"></a>文件夹准备</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"><span class="keyword">import</span> zipfile</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#·文件夹“data”不存在时制作</span></span><br><span class="line">data_dir = <span class="string">&quot;./data/&quot;</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(data_dir):</span><br><span class="line">    os.mkdir(data_dir)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#下载ImageNet的class_index</span></span><br><span class="line"><span class="comment">#是在Keras准备的。</span></span><br><span class="line"><span class="comment"># https://github.com/fchollet/deep-learning-models/blob/master/imagenet_utils.py</span></span><br><span class="line"></span><br><span class="line">url = <span class="string">&quot;https://s3.amazonaws.com/deep-learning-models/image-models/imagenet_class_index.json&quot;</span></span><br><span class="line">save_path = os.path.join(data_dir, <span class="string">&quot;imagenet_class_index.json&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(save_path):</span><br><span class="line">    urllib.request.urlretrieve(url, save_path)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#1.3下载并解压缩你要用到的蚂蚁和蜜蜂的图像数据</span></span><br><span class="line"><span class="comment"># 是在PyTorch指南课程中准备的。</span></span><br><span class="line"><span class="comment"># https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html</span></span><br><span class="line"></span><br><span class="line">url = <span class="string">&quot;https://download.pytorch.org/tutorial/hymenoptera_data.zip&quot;</span></span><br><span class="line">save_path = os.path.join(data_dir, <span class="string">&quot;hymenoptera_data.zip&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(save_path):</span><br><span class="line">    urllib.request.urlretrieve(url, save_path)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 读取ZIP文件</span></span><br><span class="line">    <span class="built_in">zip</span> = zipfile.ZipFile(save_path)</span><br><span class="line">    <span class="built_in">zip</span>.extractall(data_dir)  <span class="comment"># 解压缩ZIP</span></span><br><span class="line">    <span class="built_in">zip</span>.close()  <span class="comment"># 盗取ZIP文件</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#删除ZIP文件</span></span><br><span class="line">    os.remove(save_path)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">【※（实施完）】</span><br><span class="line"></span><br><span class="line">手动下载金毛寻回犬的图像</span><br><span class="line"></span><br><span class="line">https://pixabay.com/ja/photos/goldenretriever-%E7%8A%AC-<span class="number">3724972</span>/</span><br><span class="line">640x426尺寸的图像</span><br><span class="line">（图片版权信息:CCO Creative Commons，免费商业使用，无需标注归属）</span><br><span class="line"></span><br><span class="line">将其直接放在文件夹“data”的下方。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><p>导入软件包</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入软件包</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torchvision</span><br><span class="line"><span class="keyword">from</span> torchvision <span class="keyword">import</span> models, transforms</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>VGG-16已完成训练模型的载入</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#VGG-16已完成训练模型的载入</span></span><br><span class="line"><span class="comment"># 第一次执行时，由于需要从网络下载学习好的参数数据，因此执行时间会稍微长一些</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#生成VGG-16模型的实例</span></span><br><span class="line">use_pretrained = <span class="literal">True</span>  <span class="comment"># 使用已经训练好的参数</span></span><br><span class="line">net = models.vgg16(pretrained=use_pretrained)</span><br><span class="line">net.<span class="built_in">eval</span>()  <span class="comment"># 设置为推测模式</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#  输出模型的网络结构</span></span><br><span class="line"><span class="built_in">print</span>(net)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>实现一个对输入图片进行预处理的类BaseTransform()<br>注意：这里的__call__()作用是，如果不指定函数名而直接调用实例的变量名，<strong>call</strong>()函数内的代码直接会被执行。这里等于说就是直接返回一个被预处理过后的一个图片。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 对输入图片进行预处理的类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">BaseTransform</span>():</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    调整图片的尺寸，并对颜色进行规范化。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Attributes</span></span><br><span class="line"><span class="string">    ----------</span></span><br><span class="line"><span class="string">    resize : int</span></span><br><span class="line"><span class="string">       指定调整尺寸后图片的大小</span></span><br><span class="line"><span class="string">    mean : (R, G, B)</span></span><br><span class="line"><span class="string">       各个颜色通道的平均值</span></span><br><span class="line"><span class="string">    std : (R, G, B)</span></span><br><span class="line"><span class="string">       各个颜色通道的标准偏差</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, resize, mean, std</span>):</span><br><span class="line">        self.base_transform = transforms.Compose([</span><br><span class="line">            transforms.Resize(resize),  <span class="comment">#将较短边的长度作为resize的大小</span></span><br><span class="line">            transforms.CenterCrop(resize),  <span class="comment">#从图片中央截取resize × resize大小的区域</span></span><br><span class="line">            transforms.ToTensor(),  <span class="comment">#转换为Torch张量</span></span><br><span class="line">            transforms.Normalize(mean, std)  <span class="comment">#颜色信息的正规化</span></span><br><span class="line">        ])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__call__</span>(<span class="params">self, img</span>):</span><br><span class="line">        <span class="keyword">return</span> self.base_transform(img)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>plt.show()一下预处理的效果，可省略.</p>
-<p>注意：由于tentor即张量为( 颜色、高度、宽度 )，转换成np后需要转换为 ( 高度、宽度、颜色 )img_transformed &#x3D; img_transformed.numpy().transpose((1, 2, 0))，如何限制范围为0~1，img_transformed &#x3D; np.clip(img_transformed, 0, 1)</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#确认图像预处理的结果</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 1. 读取图片</span></span><br><span class="line">image_file_path = <span class="string">&#x27;./xxxxxxxxxx/xxx.jpg&#x27;</span></span><br><span class="line">img = Image.<span class="built_in">open</span>(image_file_path)  <span class="comment"># [高度][宽度][颜色RGB]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2.  显示处理前的图片示</span></span><br><span class="line">plt.imshow(img)</span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 同时显示预处理前后的图片</span></span><br><span class="line">resize = <span class="number">224</span></span><br><span class="line">mean = (<span class="number">0.485</span>, <span class="number">0.456</span>, <span class="number">0.406</span>)</span><br><span class="line">std = (<span class="number">0.229</span>, <span class="number">0.224</span>, <span class="number">0.225</span>)</span><br><span class="line">transform = BaseTransform(resize, mean, std)</span><br><span class="line">img_transformed = transform(img)  <span class="comment"># torch.Size([3, 224, 224])</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将 ( 颜色、高度、宽度 ) 转换为 ( 高度、宽度、颜色 )，并将取值范围限制在0~1</span></span><br><span class="line">img_transformed = img_transformed.numpy().transpose((<span class="number">1</span>, <span class="number">2</span>, <span class="number">0</span>))</span><br><span class="line">img_transformed = np.clip(img_transformed, <span class="number">0</span>, <span class="number">1</span>)</span><br><span class="line">plt.imshow(img_transformed)</span><br><span class="line">plt.show()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>实现一个处理输出后结果进行预测的类ILSVRCPredictor()，即实现将VGG16模型1000维的输出结果转换为分类标签的ILSVRCPredictor类。</p>
-<p>从VGG-16模型输出的数值被保存到大小为torch.Size([1,1000])的PyTorch张量中，这里需要将其转换为NumPy变量。因此调用.debatch(),将输出结果从网路中分离出来；然后，对被debatch的张量进行.numpy()调用，将其转换为numpy变量，并用np.argmax()获取最大值的索引。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">ILSVRC_class_index = json.load(<span class="built_in">open</span>(<span class="string">&#x27;./data/imagenet_class_index.json&#x27;</span>, <span class="string">&#x27;r&#x27;</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 根据输出结果对标签进行预测的后处理类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ILSVRCPredictor</span>():</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    根据ILSVRC数据，从模型的输出结果计算出分类标签</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Attributes</span></span><br><span class="line"><span class="string">    ----------</span></span><br><span class="line"><span class="string">    class_index : dictionary</span></span><br><span class="line"><span class="string">           将类的index与标签名关联起来的字典型变量</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, class_index</span>):</span><br><span class="line">        self.class_index = class_index</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">predict_max</span>(<span class="params">self, out</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        获得概率最大的ILSVRC分类标签名</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        Parameters</span></span><br><span class="line"><span class="string">        ----------</span></span><br><span class="line"><span class="string">        out : torch.Size([1, 1000])</span></span><br><span class="line"><span class="string">            从Net中输出结果</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        Returns</span></span><br><span class="line"><span class="string">        -------</span></span><br><span class="line"><span class="string">        predicted_label_name : str</span></span><br><span class="line"><span class="string">            预测概率最高的分类标签的名称</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        maxid = np.argmax(out.detach().numpy())</span><br><span class="line">        <span class="comment">#str()将数字-&gt;字符，class_index是字典，所以key是字符，故str(),再然后values是一个列表，列表第二个元素是#所分类别的名字,故[1]</span></span><br><span class="line">        predicted_label_name = self.class_index[<span class="built_in">str</span>(maxid)][<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> predicted_label_name</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>调用已完成学习的VGG开始预测手头的图片啦</p>
-<p>整理一下思路，输入的图片经过BaseTransform()预处理转换后，被作为VGG-16模型的输入数据输入。模型输出的1000维数据又经过ISVRCPredicor的处理，被转换为预测概率最高的分类标签名，并作为最终的输出结果返回。</p>
-<p>注意，在将图片输入PyTorch网络中，需一小批次的形式传递，故使用.unsqueeze_(0),（英语单词非压缩，即扩展）0代表是第一维度，作用就是扩展一个维度，在整体大小不变的情况下，且增大的维度是第一维度（确实就batch_size&#x3D;1）。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 载入ILSVRC的标签信息，并生成字典型变量</span></span><br><span class="line">ILSVRC_class_index = json.load(<span class="built_in">open</span>(<span class="string">&#x27;./data/imagenet_class_index.json&#x27;</span>, <span class="string">&#x27;r&#x27;</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成ILSVRCPredictor的实例</span></span><br><span class="line">predictor = ILSVRCPredictor(ILSVRC_class_index)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取输入的图像</span></span><br><span class="line">image_file_path = <span class="string">&#x27;./xxxx/xxxx.jpg&#x27;</span></span><br><span class="line">img = Image.<span class="built_in">open</span>(image_file_path)  <span class="comment"># [ 高度 ][ 宽度 ][ 颜色RGB]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 完成预处理后，添加批次尺寸的维度</span></span><br><span class="line">transform = BaseTransform(resize, mean, std)  <span class="comment">#创建预处理类</span></span><br><span class="line">img_transformed = transform(img)  <span class="comment"># torch.Size([3, 224, 224])</span></span><br><span class="line">inputs = img_transformed.unsqueeze_(<span class="number">0</span>)  <span class="comment"># torch.Size([1, 3, 224, 224])</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 输入数据到模型中，并将模型的输出转换为标签</span></span><br><span class="line">out = net(inputs)  <span class="comment"># torch.Size([1, 1000])</span></span><br><span class="line">result = predictor.predict_max(out)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出预测结果</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;输入图像的预测结果：&quot;</span>, result)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-      
     </div>
 
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/14/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="寒风渐微凉">
-      <meta itemprop="description" content="我要上UT">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Codehasuki">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			Index
+		</a>
           
-            <a href="/2023/10/14/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">深度学习入门笔记</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2023-10-14 14:02:17 / Modified: 15:58:42" itemprop="dateCreated datePublished" datetime="2023-10-14T14:02:17+08:00">2023-10-14</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/DL/" itemprop="url" rel="index"><span itemprop="name">DL</span></a>
-                </span>
-            </span>
-
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			Tags
+		</a>
           
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			Archives
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			About
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			Contact
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			Friends
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
 
         </div>
-      </header>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
 
     
+
+
+<div class="carousel carousel-slider center index-cover" data-indicators="true" style="margin-top: -64px;">
     
-    
-    <div class="post-body" itemprop="articleBody">
 
-      
-          <h2 id="激活函数"><a href="#激活函数" class="headerlink" title="激活函数"></a>激活函数</h2><p>activation function :将输入信号的总和转换为输出信号，作用就是决定如何激活输入信号的总和。</p>
-<h3 id="sigmoid-func"><a href="#sigmoid-func" class="headerlink" title="sigmoid func"></a>sigmoid func</h3><p>h(x) &#x3D; 1 &#x2F; 1 + exp(-x)</p>
-<h3 id="阶跃函数"><a href="#阶跃函数" class="headerlink" title="阶跃函数"></a>阶跃函数</h3><p>相当于感知机  </p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">step_fun</span>(<span class="params">x</span>):</span><br><span class="line">  <span class="keyword">if</span> X &gt; <span class="number">0</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"><span class="comment">#np的类型</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">step_fun</span>(<span class="params">x</span>):  </span><br><span class="line">  y = x &gt; <span class="number">0</span></span><br><span class="line">  <span class="keyword">return</span> y.astype(np.<span class="built_in">int</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h3 id="ReLU函数"><a href="#ReLU函数" class="headerlink" title="ReLU函数"></a>ReLU函数</h3><p>Rectified Linear Unit</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">relu</span>(<span class="params">X</span>):</span><br><span class="line">  <span class="keyword">return</span> np.maximum(<span class="number">0</span>,x)</span><br></pre></td></tr></table></figure>
-<h2 id="nn重要概念"><a href="#nn重要概念" class="headerlink" title="nn重要概念"></a>nn重要概念</h2><p>神经网络内积：<br><img src="/2023/10/14/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/20181219152354924.png"><br>![](屏幕截图 2023-10-14 142846.png)<br>输出层： softmax（）：yk &#x3D; exp (ak) &#x2F; exp (a1+a2+…+an)</p>
+    <div class="carousel-item  white-text bg-cover about-cover">
+        <div class="container">
+            <div class="row">
+    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+        <div class="brand">
+            <div class="title center-align">
+                
+                    subtitle
+                
+            </div>
 
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/04/13/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86-%E7%AE%97%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="寒风渐微凉">
-      <meta itemprop="description" content="我要上UT">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Codehasuki">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/04/13/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86-%E7%AE%97%E6%B3%95/" class="post-title-link" itemprop="url">二叉树遍历(算法)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2023-04-13 09:51:24" itemprop="dateCreated datePublished" datetime="2023-04-13T09:51:24+08:00">2023-04-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-05-15 14:11:04" itemprop="dateModified" datetime="2023-05-15T14:11:04+08:00">2023-05-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AE%97%E6%B3%95/%E4%BA%8C%E5%8F%89%E6%A0%91/" itemprop="url" rel="index"><span itemprop="name">二叉树</span></a>
-                </span>
-            </span>
-
-          
-
+            <div class="description center-align">
+                
+                <span id="subtitle"></span>
+                <script src="/libs/typed/typed.js"></script>
+                <script>
+                    var typed = new Typed("#subtitle", {
+                        strings: [ 
+                            
+                                "从来没有真正的绝境, 只有心灵的迷途",
+                            
+                                "Never really desperate, only the lost of the soul",
+                            
+                        ],
+                        startDelay: 300,
+                        typeSpeed: 100,
+                        loop: true,
+                        backSpeed: 50,
+                        showCursor: true
+                    });
+                </script>
+                
+            </div>
         </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="二叉树遍历"><a href="#二叉树遍历" class="headerlink" title="二叉树遍历"></a>二叉树遍历</h1><p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/description/3387/">原题</a><br>思路：树的遍历<br>题意：已知二叉树的前序遍历(带有空节点位置)求中序遍历<br>一边“建树”，一边输出</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">build</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">char</span> ch = <span class="built_in">getchar</span>();</span><br><span class="line">    <span class="keyword">if</span>(ch == <span class="string">&#x27;#&#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">build</span>();</span><br><span class="line">    cout &lt;&lt; ch &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">    <span class="built_in">build</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">build</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
     </div>
+</div>
 
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/04/12/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%EF%BC%881%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="寒风渐微凉">
-      <meta itemprop="description" content="我要上UT">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Codehasuki">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/04/12/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%EF%BC%881%EF%BC%89/" class="post-title-link" itemprop="url">动手学深度学习（1）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2023-04-12 19:54:50 / Modified: 22:07:52" itemprop="dateCreated datePublished" datetime="2023-04-12T19:54:50+08:00">2023-04-12</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E3%80%8A%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E3%80%8B%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">《动手学深度学习》自学笔记</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="预备知识"><a href="#预备知识" class="headerlink" title="预备知识"></a>预备知识</h1><h2 id="数据操作"><a href="#数据操作" class="headerlink" title="数据操作"></a>数据操作</h2><p>在PyTorch中，torch.Tensor是存储和变换数据的主要工具。Tensor和NumPy的多维数组非常类似。然而，Tensor提供GPU计算和自动求梯度等更多功能，这些使Tensor更加适合深度学习。</p>
-<p>“tensor”这个单词一般可译作“张量”，张量可以看作是一个多维数组。标量可以看作是0维张量，向量可以看作1维张量，矩阵可以看作是二维张量。</p>
-<h3 id="创建Tensor"><a href="#创建Tensor" class="headerlink" title="创建Tensor"></a>创建Tensor</h3><p>首先导入pytorch</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import torch</span><br></pre></td></tr></table></figure>
-<p>然后创建一个5x3的未初始化的Tensor</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = torch.empty(5,3)</span><br><span class="line">print(x)</span><br></pre></td></tr></table></figure>
-<p>创建一个5x3的随机初始化的Tensor</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = torch.rand(5,3)</span><br><span class="line">print(x)</span><br></pre></td></tr></table></figure>
-<p>创建一个5x3的long型全0的Tensor</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = torch.zeros(5,3,dtype=torch.long)</span><br><span class="line">print(x)</span><br></pre></td></tr></table></figure>
-<p>输出</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">tensor([[0, 0, 0],</span><br><span class="line">        [0, 0, 0],</span><br><span class="line">        [0, 0, 0],</span><br><span class="line">        [0, 0, 0],</span><br><span class="line">        [0, 0, 0]])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>可以根据数据创建</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x = torch.tensor([5.5,3])</span><br><span class="line">print(x)</span><br><span class="line"></span><br><span class="line"># tensor([5.5000, 3.0000])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>还可以通过现有的Tensor来创建，此方法会默认重用输入Tensor的一些属性，例如数据类型，除非自定义数据类型。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x = x.new_ones(5, 3, dtype=torch.float64)  # 返回的tensor默认具有相同的torch.dtype和torch.device</span><br><span class="line">print(x)</span><br><span class="line"></span><br><span class="line">x = torch.randn_like(x, dtype=torch.float) # 指定新的数据类型</span><br><span class="line">print(x) </span><br></pre></td></tr></table></figure>
-<p>输出</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">tensor([[1., 1., 1.],</span><br><span class="line">        [1., 1., 1.],</span><br><span class="line">        [1., 1., 1.],</span><br><span class="line">        [1., 1., 1.],</span><br><span class="line">        [1., 1., 1.]], dtype=torch.float64)</span><br><span class="line">tensor([[ 0.6035,  0.8110, -0.0451],</span><br><span class="line">        [ 0.8797,  1.0482, -0.0445],</span><br><span class="line">        [-0.7229,  2.8663, -0.5655],</span><br><span class="line">        [ 0.1604, -0.0254,  1.0739],</span><br><span class="line">        [ 2.2628, -0.9175, -0.2251]])</span><br></pre></td></tr></table></figure>
-<p>通过shape或size()来获取Tensor的形状</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(x.size())</span><br><span class="line">print(x.shape)</span><br><span class="line">#均为torch.Size([5,3])</span><br></pre></td></tr></table></figure>
-<p>注意：返回的torch.Size其实就是一个tuple, 支持所有tuple的操作。<br><img src="/2023/04/12/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%EF%BC%881%EF%BC%89/image1.jpg"></p>
-<h3 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h3><h4 id="算术操作"><a href="#算术操作" class="headerlink" title="算术操作"></a>算术操作</h4><p>加法形式1</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">y = torch.rand(5, 3)</span><br><span class="line">print(x + y)</span><br></pre></td></tr></table></figure>
-<p>加法形式2</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(torch.add(x, y))</span><br></pre></td></tr></table></figure>
-<p>还可以指定输出</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">result = torch.empty(5, 3)</span><br><span class="line">torch.add(x, y, out=result)</span><br><span class="line">print(result)</span><br></pre></td></tr></table></figure>
-<p>加法形式3</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># adds x to y</span><br><span class="line">y.add_(x)</span><br><span class="line">print(y)</span><br></pre></td></tr></table></figure>
-<p>注：PyTorch操作inplace版本都有后缀_, 例如x.copy_(y), x.t_()</p>
-<h4 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h4><p>我们还可以使用类似NumPy的索引操作来访问Tensor的一部分，需要注意的是：索引出来的结果与原数据共享内存，也即修改一个，另一个会跟着修改。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">y = x[0, :] #第一行的，从头到尾</span><br><span class="line">y += 1</span><br><span class="line">print(y)</span><br><span class="line">print(x[0, :]) # 源tensor也被改了</span><br></pre></td></tr></table></figure>
-<p><img src="/2023/04/12/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%EF%BC%881%EF%BC%89/image2.jpg"></p>
-<h4 id="改变形状"><a href="#改变形状" class="headerlink" title="改变形状"></a>改变形状</h4><p>用view()来改变Tensor的形状</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">y = x.view(15)</span><br><span class="line">z = x.view(-1, 5)  # -1所指的维度可以根据其他维度的值推出来</span><br><span class="line">print(x.size(), y.size(), z.size())</span><br></pre></td></tr></table></figure>
-<p>输出</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.Size([5, 3]) torch.Size([15]) torch.Size([3, 5])</span><br></pre></td></tr></table></figure>
-<p>注意view()返回的新Tensor与源Tensor虽然可能有不同的size，但是是共享data的，也即更改其中的一个，另外一个也会跟着改变。(顾名思义，view仅仅是改变了对这个张量的观察角度，内部数据并未改变)</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x += 1</span><br><span class="line">print(x)</span><br><span class="line">print(y) # 也加了1</span><br></pre></td></tr></table></figure>
-<p>输出</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">tensor([[1.6035, 1.8110, 0.9549],</span><br><span class="line">        [1.8797, 2.0482, 0.9555],</span><br><span class="line">        [0.2771, 3.8663, 0.4345],</span><br><span class="line">        [1.1604, 0.9746, 2.0739],</span><br><span class="line">        [3.2628, 0.0825, 0.7749]])</span><br><span class="line">tensor([1.6035, 1.8110, 0.9549, 1.8797, 2.0482, 0.9555, 0.2771, 3.8663, 0.4345,</span><br><span class="line">        1.1604, 0.9746, 2.0739, 3.2628, 0.0825, 0.7749])</span><br></pre></td></tr></table></figure>
-<p>所以如果我们想返回一个真正新的副本（即不共享data内存）该怎么办呢？Pytorch还提供了一个reshape()可以改变形状，但是此函数并不能保证返回的是其拷贝，所以不推荐使用。推荐先用clone创造一个副本然后再使用view。<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/49643225/whats-the-difference-between-reshape-and-view-in-pytorch">参考此处</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x_cp = x.clone().view(15)</span><br><span class="line">x -= 1</span><br><span class="line">print(x)</span><br><span class="line">print(x_cp)</span><br></pre></td></tr></table></figure>
-<p>输出</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">tensor([[ 0.6035,  0.8110, -0.0451],</span><br><span class="line">        [ 0.8797,  1.0482, -0.0445],</span><br><span class="line">        [-0.7229,  2.8663, -0.5655],</span><br><span class="line">        [ 0.1604, -0.0254,  1.0739],</span><br><span class="line">        [ 2.2628, -0.9175, -0.2251]])</span><br><span class="line">tensor([1.6035, 1.8110, 0.9549, 1.8797, 2.0482, 0.9555, 0.2771, 3.8663, 0.4345,</span><br><span class="line">        1.1604, 0.9746, 2.0739, 3.2628, 0.0825, 0.7749])</span><br></pre></td></tr></table></figure>
-<p>使用clone还有一个好处是会被记录在计算图中，即梯度回传到副本时也会传到源Tensor。<br>另外一个常用的函数就是item(), 它可以将一个标量Tensor转换成一个Python number：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x = torch.randn(1)</span><br><span class="line">print(x)</span><br><span class="line">print(x.item())</span><br></pre></td></tr></table></figure>
-<p>输出</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tensor([2.3466])</span><br><span class="line">2.3466382026672363</span><br></pre></td></tr></table></figure>
-<h4 id="线性代数"><a href="#线性代数" class="headerlink" title="线性代数"></a>线性代数</h4><p><img src="/2023/04/12/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%EF%BC%881%EF%BC%89/image3.jpg"><br>PyTorch中的Tensor支持超过一百种操作，包括转置、索引、切片、数学运算、线性代数、随机数等等，可参考<a target="_blank" rel="noopener" href="https://pytorch.org/docs/stable/tensors.html">官方文档</a></p>
-<h4 id="广播机制"><a href="#广播机制" class="headerlink" title="广播机制"></a>广播机制</h4><p>(之前都是相同形状运算)当对两个形状不同的Tensor按元素运算时，可能会触发广播（broadcasting）机制：先适当复制元素使这两个Tensor形状相同后再按元素运算。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x = torch.arange(1, 3).view(1, 2)</span><br><span class="line">print(x)</span><br><span class="line">y = torch.arange(1, 4).view(3, 1)</span><br><span class="line">print(y)</span><br><span class="line">print(x + y)</span><br></pre></td></tr></table></figure>
-<p>输出</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">tensor([[1, 2]])</span><br><span class="line">tensor([[1],</span><br><span class="line">        [2],</span><br><span class="line">        [3]])</span><br><span class="line">tensor([[2, 3],</span><br><span class="line">        [3, 4],</span><br><span class="line">        [4, 5]])</span><br></pre></td></tr></table></figure>
-<p>由于x和y分别是1行2列和3行1列的矩阵，如果要计算x + y，那么x中第一行的2个元素被广播（复制）到了第二行和第三行，而y中第一列的3个元素被广播（复制）到了第二列。如此，就可以对2个3行2列的矩阵按元素相加。</p>
-<h3 id="运算的内存开销"><a href="#运算的内存开销" class="headerlink" title="运算的内存开销"></a>运算的内存开销</h3><p>索引操作是不会开辟新内存的，而像y &#x3D; x + y这样的运算是会新开内存的，然后将y指向新内存。为了演示这一点，我们可以使用Python自带的id函数：如果两个实例的ID一致，那么它们所对应的内存地址相同；反之则不同。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x = torch.tensor([1, 2])</span><br><span class="line">y = torch.tensor([3, 4])</span><br><span class="line">id_before = id(y)</span><br><span class="line">y = y + x</span><br><span class="line">print(id(y) == id_before) # False </span><br></pre></td></tr></table></figure>
-<p>如果想指定结果到原来的y的内存，我们可以使用前面介绍的索引来进行替换操作。在下面的例子中，我们把x + y的结果通过[:]写进y对应的内存中。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x = torch.tensor([1, 2])</span><br><span class="line">y = torch.tensor([3, 4])</span><br><span class="line">id_before = id(y)</span><br><span class="line">y[:] = y + x</span><br><span class="line">print(id(y) == id_before) # True</span><br></pre></td></tr></table></figure>
-<p>我们还可以使用运算符全名函数中的out参数或者自加运算符+&#x3D;(也即add_())达到上述效果，例如torch.add(x, y, out&#x3D;y)和y +&#x3D; x(y.add_(x))。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x = torch.tensor([1, 2])</span><br><span class="line">y = torch.tensor([3, 4])</span><br><span class="line">id_before = id(y)</span><br><span class="line">torch.add(x, y, out=y) # y += x, y.add_(x)</span><br><span class="line">print(id(y) == id_before) # True</span><br></pre></td></tr></table></figure>
-<p>注：虽然view返回的Tensor与源Tensor是共享data的，但是依然是一个新的Tensor（因为Tensor除了包含data外还有一些其他属性），二者id（内存地址）并不一致。</p>
-<h3 id="Tensor和Numpy相互转换"><a href="#Tensor和Numpy相互转换" class="headerlink" title="Tensor和Numpy相互转换"></a>Tensor和Numpy相互转换</h3><p>我们很容易用numpy()和from_numpy()将Tensor和NumPy中的数组相互转换。但是需要注意的一点是： 这两个函数所产生的的Tensor和NumPy中的数组共享相同的内存（所以他们之间的转换很快），改变其中一个时另一个也会改变！！！</p>
-<blockquote>
-<p>还有一个常用的将NumPy中的array转换成Tensor的方法就是torch.tensor(), 需要注意的是，此方法总是会进行数据拷贝（就会消耗更多的时间和空间），所以返回的Tensor和原来的数据不再共享内存。</p>
-</blockquote>
-<h4 id="Tensor转Numpy"><a href="#Tensor转Numpy" class="headerlink" title="Tensor转Numpy"></a>Tensor转Numpy</h4><p>使用numpy()将Tensor转换成NumPy数组:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a = torch.ones(5)</span><br><span class="line">b = a.numpy()</span><br><span class="line">print(a, b)</span><br><span class="line"></span><br><span class="line">a += 1</span><br><span class="line">print(a, b)</span><br><span class="line">b += 1</span><br><span class="line">print(a, b)</span><br></pre></td></tr></table></figure>
-<p>输出：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tensor([1., 1., 1., 1., 1.]) [1. 1. 1. 1. 1.]</span><br><span class="line">tensor([2., 2., 2., 2., 2.]) [2. 2. 2. 2. 2.]</span><br><span class="line">tensor([3., 3., 3., 3., 3.]) [3. 3. 3. 3. 3.]</span><br></pre></td></tr></table></figure>
-<h4 id="NumPy数组转Tensor"><a href="#NumPy数组转Tensor" class="headerlink" title="NumPy数组转Tensor"></a>NumPy数组转Tensor</h4><p>使用from_numpy()将NumPy数组转换成Tensor:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">a = np.ones(5)</span><br><span class="line">b = torch.from_numpy(a)</span><br><span class="line">print(a, b)</span><br><span class="line"></span><br><span class="line">a += 1</span><br><span class="line">print(a, b)</span><br><span class="line">b += 1</span><br><span class="line">print(a, b)</span><br></pre></td></tr></table></figure>
-<p>输出:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[1. 1. 1. 1. 1.] tensor([1., 1., 1., 1., 1.], dtype=torch.float64)</span><br><span class="line">[2. 2. 2. 2. 2.] tensor([2., 2., 2., 2., 2.], dtype=torch.float64)</span><br><span class="line">[3. 3. 3. 3. 3.] tensor([3., 3., 3., 3., 3.], dtype=torch.float64)</span><br></pre></td></tr></table></figure>
-<p>所有在CPU上的Tensor（除了CharTensor）都支持与NumPy数组相互转换。</p>
-<p>此外上面提到还有一个常用的方法就是直接用torch.tensor()将NumPy数组转换成Tensor，需要注意的是该方法总是会进行数据拷贝，返回的Tensor和原来的数据不再共享内存。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">c = torch.tensor(a)</span><br><span class="line">a += 1</span><br><span class="line">print(a, c)</span><br></pre></td></tr></table></figure>
-<p>输出</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[4. 4. 4. 4. 4.] tensor([3., 3., 3., 3., 3.], dtype=torch.float64)</span><br></pre></td></tr></table></figure>
-<h3 id="Tensor-on-GPU"><a href="#Tensor-on-GPU" class="headerlink" title="Tensor on GPU"></a>Tensor on GPU</h3><p>方法to()可以将CPU和GPU之间相互移动</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 以下代码只有在PyTorch GPU版本上才会执行</span><br><span class="line">if torch.cuda.is_available():</span><br><span class="line">    device = torch.device(&quot;cuda&quot;)          # GPU</span><br><span class="line">    y = torch.ones_like(x, device=device)  # 直接创建一个在GPU上的Tensor</span><br><span class="line">    x = x.to(device)                       # 等价于 .to(&quot;cuda&quot;)</span><br><span class="line">    z = x + y</span><br><span class="line">    print(z)</span><br><span class="line">    print(z.to(&quot;cpu&quot;, torch.double))       # to()还可以同时更改数据类型</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/29/%E7%BC%96%E8%AF%913-29/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="寒风渐微凉">
-      <meta itemprop="description" content="我要上UT">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Codehasuki">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/03/29/%E7%BC%96%E8%AF%913-29/" class="post-title-link" itemprop="url">编译原理3.29</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2023-03-29 18:52:30" itemprop="dateCreated datePublished" datetime="2023-03-29T18:52:30+08:00">2023-03-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-04-03 15:03:20" itemprop="dateModified" datetime="2023-04-03T15:03:20+08:00">2023-04-03</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CP-notes/" itemprop="url" rel="index"><span itemprop="name">CP notes</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="第一章-引论"><a href="#第一章-引论" class="headerlink" title="第一章 引论"></a>第一章 引论</h1><h2 id="1-1程序的翻译"><a href="#1-1程序的翻译" class="headerlink" title="1.1程序的翻译"></a>1.1程序的翻译</h2><p>翻译程序： 源语言-&gt;与之等价的目标语言<br>两种方式：1、编译 2、解释  </p>
-<h3 id="编译方式"><a href="#编译方式" class="headerlink" title="编译方式"></a>编译方式</h3><p>编译方式是一种分阶段进行的方式<br>翻译阶段：高级语言或汇编语言程序-&gt;汇编语言或机器语言的目标程序<br>运行阶段：输入数据–目标程序&amp;系统子程序–&gt;运行结果<br>特点：  </p>
-<ul>
-<li>源程序的执行需要分阶段  <ul>
-<li>如果目标程序是机器语言程序，两大阶段：编译阶段和运行阶段。</li>
-<li>如果目标程序是汇编语言程序，三大阶段：编译阶段、汇编阶段和运行阶段。</li>
-</ul>
-</li>
-<li>生成了目标代码，且可以多次执行。</li>
-</ul>
-<p>说明：  </p>
-<ul>
-<li>生成的目标程序<u>不一定</u>是机器语言的程序，也有可能是汇编语言程序；</li>
-<li>编译程序与<u>具体的机器和语言有关</u>，即任何一个具体的编译程序都是某一特定类型的计算机系统中关于某一特定语言的编译程序；</li>
-<li>对编译程序而言，<u>源程序</u>是输入数据，<u>目标程序</u>是输出结果</li>
-</ul>
-<h3 id="解释方式"><a href="#解释方式" class="headerlink" title="解释方式"></a>解释方式</h3><p>解释程序将按源程序中<del>语句的动态顺序</del>，逐句地进行分析解释，并<del>立即</del>予以<del>执行</del>。<br>特点：</p>
-<ul>
-<li>不生成目标代码，直接执行源程序本身。与前者方式的<del>根本区别</del>。</li>
-<li>都需要进行词法、语法、语义分析</li>
-<li>更灵活，交互方便，节省空间</li>
-<li>效率低（时间开销、空间开销）</li>
-</ul>
-<p><img src="/2023/03/29/%E7%BC%96%E8%AF%913-29/images.jpg"></p>
-<h2 id="1-2编译程序的工作过程"><a href="#1-2编译程序的工作过程" class="headerlink" title="1.2编译程序的工作过程"></a>1.2编译程序的工作过程</h2><ul>
-<li>词法分析</li>
-<li>语法分析</li>
-<li>语义分析和中间代码生成</li>
-<li>中间代码优化</li>
-<li>目标代码生成</li>
-</ul>
-<h3 id="词法分析"><a href="#词法分析" class="headerlink" title="词法分析"></a>词法分析</h3><p>依据语言<font color=red>词法规则</font>，分析由字符组成的源程序，把它识别为一个一个具有独立意义的<font color=red>最小语法单位</font>，即“<font color=red>单词</font>”，并识别出与其相关的属性（如是标识符还是界限符，or数..）再转换成<font color=red>长度上统一</font>的标准形式（这个形式既刻画单词本身，又刻画了它具有的属性，称为<font color=red>属性字</font>），以供其他部分使用。  </p>
-<ul>
-<li>扫描源程序的字符串，识别单词（关键字、标识符、常量、运算符、界限符）</li>
-</ul>
-<p>eg:<br><img src="/2023/03/29/%E7%BC%96%E8%AF%913-29/images1.jpg"></p>
-<p>属性字： &lt;类别号class，自身值value&gt;</p>
-<h3 id="语法分析"><a href="#语法分析" class="headerlink" title="语法分析"></a>语法分析</h3><p>依据<font color=red>语法规则</font>，逐一分析词法分析时得到的单词，把单词串分解成各类语法单位，即确定<font color=red>它们是怎样组成和语句，以及说明语句又是怎样组成程序的</font>。分析时如发现有不合语法规则的地方，便将出错的位置及出错性质打印报告程序员。如无语法错误，则用另一种中间形式给出正确的语法结构，供下一阶段分析使用。</p>
-<h3 id="语义分析"><a href="#语义分析" class="headerlink" title="语义分析"></a>语义分析</h3><p>依据语言的语义规则对语法分析得到的语法结构进行静态语义检查（确定类型、类型和运算合法性检查、识别含义与相 应的语义处理及其它一些静态语义检查），并用另一种内部形式表示出来，或者直接用目标语言表示出来。<br>凡在编译时可以确定的内容称为“静态”的；凡必须推迟 到程序运行时才能确定的内容称为“动态”的</p>
-<h3 id="代码优化"><a href="#代码优化" class="headerlink" title="代码优化"></a>代码优化</h3><p>依据程序的等价变换规则，尽量压缩目标程序运行所需的 时间和所占的存储空间，以提高目标程序的质量。<br>优化的是中间代码&#x2F;目标代码的质量，而非编译程序的质量</p>
-<h3 id="代码生成"><a href="#代码生成" class="headerlink" title="代码生成"></a>代码生成</h3><p>如果语义分析时把源程序表示成中间形式而不是表示成目标指令，则由本部分完成从中间形式到目标指令的转换。如果语义分析时，已直接生成目标指令，则无需另外再做代码生成工作。<br>目标指令可能是绝对指令代码，或可重新定位的指令代码 或汇编指令代码。该阶段的工作有赖于硬件系统结构和机器指令含义。</p>
-<h3 id="表格管理"><a href="#表格管理" class="headerlink" title="表格管理"></a>表格管理</h3><p>登记源程序中出现的每个名字以及名字的各种属性。有些名字的属性需要在各个阶段才能填入。<br><img src="/2023/03/29/%E7%BC%96%E8%AF%913-29/images2.jpg"></p>
-<h3 id="出错处理"><a href="#出错处理" class="headerlink" title="出错处理"></a>出错处理</h3><p>源程序中的错误有语法错误和语义错误两种。</p>
-<p>语法错误：源程序中不符合语法（或词法）规则的错误，它们可在词法分析或语法分析时检测出来。</p>
-<p>语义错误：源程序中不符合语义规则的错误，一般在语义分析时检测出来，有的语义错误要在运行时才能检测出来。通常包括：说明错误、作用域错误、类型不一致等等。</p>
-<h2 id="1-3编译程序的结构"><a href="#1-3编译程序的结构" class="headerlink" title="1.3编译程序的结构"></a>1.3编译程序的结构</h2><p><img src="/2023/03/29/%E7%BC%96%E8%AF%913-29/images3.jpg"></p>
-<h2 id="1-4编译程序的组织形式"><a href="#1-4编译程序的组织形式" class="headerlink" title="1.4编译程序的组织形式"></a>1.4编译程序的组织形式</h2><h3 id="遍（趟，趟程）"><a href="#遍（趟，趟程）" class="headerlink" title="遍（趟，趟程）"></a>遍（趟，趟程）</h3><p>所谓一趟或一遍是指一个编译程序在编译时刻把源程序或源 程序的等价物（中间程序）从头到尾扫描一遍并转换成另一紧邻的 等价物的全过程。</p>
-<p>根据编译程序在完成翻译任务的过程中需要对源程序或其中间等价物扫描的遍数，可以把编译程序分为单遍扫描的编译程序 （只需扫描一遍）和多遍扫描的编译程序（需扫描多遍）。<br><img src="/2023/03/29/%E7%BC%96%E8%AF%913-29/images4.jpg"></p>
-<p>多遍的特点：<br>优点：</p>
-<ul>
-<li>节省内存空间</li>
-<li>提高目标程序质量</li>
-<li>缩短Compiler的开发周期</li>
-</ul>
-<p>缺点：  </p>
-<ul>
-<li>重复性工作</li>
-<li>延长了编译时间，降低了编译效率</li>
-</ul>
-<p>并非单遍&#x2F;多遍一定就好，视情况而定。<br>选择编译的“遍”数的原则：  </p>
-<ul>
-<li>语言的大小、结构</li>
-<li>机器的规模</li>
-<li>设计的目的（如：编译速度、目标程序的运行速度）</li>
-<li>设计人员素质多少</li>
-</ul>
-<h3 id="编译的前端和后端"><a href="#编译的前端和后端" class="headerlink" title="编译的前端和后端"></a>编译的前端和后端</h3><ul>
-<li>前端主要由与源语言有关但与目标机器无关的那些部分组成, 如词法分析、语法分析、语义分析与中间代码生成及部分代码优 化工作。  </li>
-<li>后端主要包括编译中与目标机器有关的那些部分，如与目标 机有关的代码优化和目标代码生成等。后端不依赖于源语言而仅 依赖于中间语言。<br><img src="/2023/03/29/%E7%BC%96%E8%AF%913-29/images5.jpg"></li>
-</ul>
-<p><img src="/2023/03/29/%E7%BC%96%E8%AF%913-29/images6.jpg"></p>
-<h2 id="1-5编译程序的构造"><a href="#1-5编译程序的构造" class="headerlink" title="1.5编译程序的构造"></a>1.5编译程序的构造</h2><h3 id="高级语言的自编译性高级语言的自编译性"><a href="#高级语言的自编译性高级语言的自编译性" class="headerlink" title="高级语言的自编译性高级语言的自编译性"></a>高级语言的自编译性高级语言的自编译性</h3><p>构造编译程序可以用机器言语、汇编语言和高级语言<br>高级语言的自编译性：一个语言可以用来编写自己的编 译程序。<br><img src="/2023/03/29/%E7%BC%96%E8%AF%913-29/images7.jpg"></p>
-<p><img src="/2023/03/29/%E7%BC%96%E8%AF%913-29/images8.jpg"></p>
-<h3 id="编译的自展技术"><a href="#编译的自展技术" class="headerlink" title="编译的自展技术"></a>编译的自展技术</h3><p>即通过一系列自展途径而形成编译程序的过程。<br>先对语言的核心部分构造一个小小编译程序（可用低级语 言实现），再以它为工具构造一个能够编译更多语言成分的较大编译程序。如此扩展下去，越滚越大，最后形成所期望的整个编译程序。<br><img src="/2023/03/29/%E7%BC%96%E8%AF%913-29/images9.jpg"></p>
-<h3 id="编译的移植"><a href="#编译的移植" class="headerlink" title="编译的移植"></a>编译的移植</h3><p>即将一个机器（宿主机）上的一个具有自编译性的高级语 言编译程序移植到另一个机器（目标机）上。<br>利用A机器上的高级语言L编写能在B机器上运行的高级语言L的编译程序。<br><img src="/2023/03/29/%E7%BC%96%E8%AF%913-29/images10.jpg"></p>
-<p><img src="/2023/03/29/%E7%BC%96%E8%AF%913-29/images11.jpg"></p>
-<h3 id="编译程序的自动化"><a href="#编译程序的自动化" class="headerlink" title="编译程序的自动化"></a>编译程序的自动化</h3><p><img src="/2023/03/29/%E7%BC%96%E8%AF%913-29/images12.jpg"></p>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><ul>
-<li>什么是编译程序</li>
-<li>编译方式的特点</li>
-<li>解释方式的特点</li>
-<li>编译方式与解释方式的根本区别</li>
-<li>编译程序的工作过程</li>
-<li>编译程序的结构</li>
-<li>遍与编译程序的组织形式</li>
-<li>编译程序的构造方法</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/28/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="寒风渐微凉">
-      <meta itemprop="description" content="我要上UT">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Codehasuki">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/03/28/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2023-03-28 15:53:28" itemprop="dateCreated datePublished" datetime="2023-03-28T15:53:28+08:00">2023-03-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-03-29 00:58:55" itemprop="dateModified" datetime="2023-03-29T00:58:55+08:00">2023-03-29</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
-  
-
-
-
-          </div>
-          
 
 <script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
+    // 每天切换 banner 图.  Switch banner image every day.
+    var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
+    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
+</script>
+<script>
+    
+      var bannerUrl = "/medias/featureimages/" + Math.floor(Math.random() * 24) + '.jpg';
+    
+    $('.bg-cover.about-cover').css('background-image', 'url(' + bannerUrl + ')');
+
 </script>
 
+
+
+            <div class="cover-btns">
+                <a href="#indexCard" class="waves-effect waves-light btn">
+                    <i class="fa fa-angle-double-down"></i>Start
+                </a>
+
+                
+                    <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light btn" target="_blank">
+                        <i class="fab fa-github-alt"></i>Github
+                    </a>
+                
+            </div>
+            <div class="cover-social-link">
+    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
         </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          Table of Contents
-        </li>
-        <li class="sidebar-nav-overview">
-          Overview
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="寒风渐微凉"
-      src="/images/avatar.gif">
-  <p class="site-author-name" itemprop="name">寒风渐微凉</p>
-  <div class="site-description" itemprop="description">我要上UT</div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">6</span>
-          <span class="site-state-item-name">posts</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-        <span class="site-state-item-count">6</span>
-        <span class="site-state-item-name">categories</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">6</span>
-        <span class="site-state-item-name">tags</span></a>
-      </div>
-  </nav>
-</div>
-
-
-  <div class="links-of-blogroll motion-element">
-    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
-      Links
     </div>
-    <ul class="links-of-blogroll-list">
-        <li class="links-of-blogroll-item">
-          <a href="https://www.acwing.com/" title="https:&#x2F;&#x2F;www.acwing.com&#x2F;" rel="noopener" target="_blank">Acwing</a>
-        </li>
-    </ul>
-  </div>
 
-      </div>
+    
+</div>
 
+<script>
+    $(function () {
+        let coverSlider = $('.carousel');
+
+        //用户触摸轮播自动 restartPlay 是否生效
+        let initUserPressedOrDraggedActive = false
+
+        //用户触摸轮播自动 restartPlay
+        function initUserPressedOrDragged(instance) {
+            setInterval(() => {
+                if (instance.pressed || instance.dragged) {
+                    // console.log('initUserPressedOrDragged: ',instance.pressed,instance.dragged)
+                    restartPlay()
+                }
+            }, 1000)
+        }
+
+        coverSlider.carousel({
+            duration: Number('120'),
+            fullWidth: true,
+            indicators: 'true' === 'true',
+            onCycleTo() {
+                if (!initUserPressedOrDraggedActive) {
+                    // console.log('initUserPressedOrDraggedActive')
+                    initUserPressedOrDragged(this)
+                    initUserPressedOrDraggedActive = true
+                }
+            },
+        })
+
+        let carouselIntervalId;
+        
+        // Loop to call the next cover article picture.
+        let autoCarousel = function () {
+            carouselIntervalId = setInterval(function () {
+                coverSlider.carousel('next');
+            }, 5000);
+        };
+        autoCarousel();
+        
+
+        function restartPlay() {
+            
+            clearInterval(carouselIntervalId);
+            autoCarousel();
+            
+        };
+
+        
+        // prev and next cover post.
+        $('#prev-cover').click(function () {
+            coverSlider.carousel('prev');
+            restartPlay();
+        });
+        $('#next-cover').click(function () {
+            coverSlider.carousel('next');
+            restartPlay();
+        });
+        
+    });
+</script>
+
+
+
+<main class="content">
+
+    
+    <div id="indexCard" class="index-card">
+        <div class="container ">
+            <div class="card">
+                <div class="card-content">
+                    
+                        <div class="dream">
+    
+    <div class="title center-align">
+        <i class="far fa-lightbulb"></i>&nbsp;&nbsp;我的梦想
     </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2023</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">寒风渐微凉</span>
-</div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
-  </div>
-
-<div class="theme-info">
-  <div class="powered-by"></div>
-  <span class="post-count">A total of 6k words in the whole blog</span>
+    
+    <div class="row">
+        <div class="col l8 offset-l2 m10 offset-m1 s10 offset-s1 center-align text">
+            不是每个人都应该像我这样去建造一座水晶大教堂，但是每个人都应该拥有自己的梦想，设计自己的梦想，追求自己的梦想，实现自己的梦想。梦想是生命的灵魂，是心灵的灯塔，是引导人走向成功的信仰。有了崇高的梦想，只要矢志不渝地追求，梦想就会成为现实，奋斗就会变成壮举，生命就会创造奇迹。——罗伯·舒乐
+        </div>
+    </div>
 </div>
 
+                    
+
+                    
+
+                    
+
+                    
+                    <div id="recommend-sections" class="recommend">
+                        
+
+
+
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    
+
+    <!-- 所有文章卡片 -->
+    <article id="articles" class="container articles">
+        <div class="row article-row">
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2023/10/14/%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB-VGG-1/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="图像分类(VGG)(1)">
+                            
+                            <span class="card-title">图像分类(VGG)(1)</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                已完成训练的VGG模型的使用方法使用ImageNet数据集中已经提前训练好网络参数的VGG-16模型来实现对未知图片进行自动分类处理的程序。ImageNet是斯坦福大学从互联网上收集的已分类的图像数据集，ILSVRC竞赛常用（ImageNe
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-10-14
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/DL/" class="post-category">
+                                    DL
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/DL/">
+                            <span class="chip bg-color">DL</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2023/10/14/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="深度学习入门笔记">
+                            
+                            <span class="card-title">深度学习入门笔记</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                激活函数activation function :将输入信号的总和转换为输出信号，作用就是决定如何激活输入信号的总和。
+sigmoid funch(x) &#x3D; 1 &#x2F; 1 + exp(-x)
+阶跃函数相当于感知机  
+12
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-10-14
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/DL/" class="post-category">
+                                    DL
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/DL/">
+                            <span class="chip bg-color">DL</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2023/04/13/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86-%E7%AE%97%E6%B3%95/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="二叉树遍历(算法)">
+                            
+                            <span class="card-title">二叉树遍历(算法)</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                二叉树遍历原题思路：树的遍历题意：已知二叉树的前序遍历(带有空节点位置)求中序遍历一边“建树”，一边输出
+12345678910111213141516171819202122#include &lt;iostream&gt;#includ
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-13
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
+                                </a>
+                                
+                                <a href="/categories/%E7%AE%97%E6%B3%95/%E4%BA%8C%E5%8F%89%E6%A0%91/" class="post-category">
+                                    二叉树
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E7%AE%97%E6%B3%95/">
+                            <span class="chip bg-color">算法</span>
+                        </a>
+                        
+                        <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/">
+                            <span class="chip bg-color">二叉树</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2023/04/12/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%EF%BC%881%EF%BC%89/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="动手学深度学习（1）">
+                            
+                            <span class="card-title">动手学深度学习（1）</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                预备知识数据操作在PyTorch中，torch.Tensor是存储和变换数据的主要工具。Tensor和NumPy的多维数组非常类似。然而，Tensor提供GPU计算和自动求梯度等更多功能，这些使Tensor更加适合深度学习。
+“tensor
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-12
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E3%80%8A%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E3%80%8B%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    《动手学深度学习》自学笔记
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
+                            <span class="chip bg-color">深度学习</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2023/03/29/%E7%BC%96%E8%AF%913-29/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="编译原理3.29">
+                            
+                            <span class="card-title">编译原理3.29</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                第一章 引论1.1程序的翻译翻译程序： 源语言-&gt;与之等价的目标语言两种方式：1、编译 2、解释  
+编译方式编译方式是一种分阶段进行的方式翻译阶段：高级语言或汇编语言程序-&gt;汇编语言或机器语言的目标程序运行阶段：输入数据–目标
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-29
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/CP-notes/" class="post-category">
+                                    CP notes
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/CP-notes/">
+                            <span class="chip bg-color">CP notes</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2023/03/28/hello-world/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                            
+                            <span class="card-title">Hello World</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-28
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Hexo/" class="post-category">
+                                    Hexo
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/hexo/">
+                            <span class="chip bg-color">hexo</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+        </div>
+    </article>
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
         
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2023</span>
+            
+            <a href="/about" target="_blank">寒风渐微凉</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;Total visits:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;Total visitors:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
 
 
 
@@ -933,30 +1012,9 @@
 
 
 
-
-      </div>
-    </footer>
-  </div>
-
-  
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/pisces.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-
-
-
-  
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
 
 
 
@@ -964,19 +1022,219 @@
 
 
 
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
 
 
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
 
 
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
 
+    
 
+    
+    
+    
 
+    <!-- 雪花特效 -->
+    
 
-  
+    <!-- 鼠标星星特效 -->
+    
 
-  
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
 
-  <script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script>
-<script type="text/javascript" src="/js/src/custom.js"></script>
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
 </body>
+
 </html>
