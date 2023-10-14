@@ -169,6 +169,71 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/14/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="寒风渐微凉">
+      <meta itemprop="description" content="我要上UT">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Codehasuki">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/10/14/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">深度学习入门笔记</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2023-10-14 14:02:17 / Modified: 14:34:49" itemprop="dateCreated datePublished" datetime="2023-10-14T14:02:17+08:00">2023-10-14</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="激活函数"><a href="#激活函数" class="headerlink" title="激活函数"></a>激活函数</h2><p>activation function :将输入信号的总和转换为输出信号，作用就是决定如何激活输入信号的总和。</p>
+<h3 id="sigmoid-func"><a href="#sigmoid-func" class="headerlink" title="sigmoid func"></a>sigmoid func</h3><p>h(x) &#x3D; 1 &#x2F; 1 + exp(-x)</p>
+<h3 id="阶跃函数"><a href="#阶跃函数" class="headerlink" title="阶跃函数"></a>阶跃函数</h3><p>相当于感知机  </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">step_fun</span>(<span class="params">x</span>):</span><br><span class="line">  <span class="keyword">if</span> X &gt; <span class="number">0</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"><span class="comment">#np的类型</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">step_fun</span>(<span class="params">x</span>):  </span><br><span class="line">  y = x &gt; <span class="number">0</span></span><br><span class="line">  <span class="keyword">return</span> y.astype(np.<span class="built_in">int</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="ReLU函数"><a href="#ReLU函数" class="headerlink" title="ReLU函数"></a>ReLU函数</h3><p>Rectified Linear Unit</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">relu</span>(<span class="params">X</span>):</span><br><span class="line">  <span class="keyword">return</span> np.maximum(<span class="number">0</span>,x)</span><br></pre></td></tr></table></figure>
+<h2 id="nn重要概念"><a href="#nn重要概念" class="headerlink" title="nn重要概念"></a>nn重要概念</h2><p>神经网络内积：<br><img src="/2023/10/14/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/20181219152354924.png"><br>![](屏幕截图 2023-10-14 142846.png)<br>输出层： softmax（）：yk &#x3D; exp (ak) &#x2F; exp (a1+a2+…+an)</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/04/13/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86-%E7%AE%97%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -698,7 +763,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -758,7 +823,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">A total of 4.2k words in the whole blog</span>
+  <span class="post-count">A total of 4.4k words in the whole blog</span>
 </div>
 
         
