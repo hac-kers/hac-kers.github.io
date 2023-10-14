@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="图像分类(VGG)(1), Codehasuki">
+    <meta name="keywords" content="图像分类(VGG)(1), LWQ">
     <meta name="description" content="已完成训练的VGG模型的使用方法使用ImageNet数据集中已经提前训练好网络参数的VGG-16模型来实现对未知图片进行自动分类处理的程序。ImageNet是斯坦福大学从互联网上收集的已分类的图像数据集，ILSVRC竞赛常用（ImageNe">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>图像分类(VGG)(1) | Codehasuki</title>
+    <title>图像分类(VGG)(1) | LWQ</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -52,7 +52,10 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0"></head>
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="LWQ" type="application/atom+xml">
+</head>
 
 
 <body>
@@ -64,7 +67,7 @@
                     
                     <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
-                    <span class="logo-span">Codehasuki</span>
+                    <span class="logo-span">LWQ</span>
                 </a>
             </div>
             
@@ -168,7 +171,7 @@
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">Codehasuki</div>
+        <div class="logo-name">LWQ</div>
         <div class="logo-desc">
             
             我要上UT
@@ -258,7 +261,7 @@
         
         <li><div class="divider"></div></li>
         <li>
-            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+            <a href="https://github.com/hac-kers" class="waves-effect waves-light" target="_blank">
                 <i class="fab fa-github-square fa-fw"></i>Fork Me
             </a>
         </li>
@@ -315,7 +318,7 @@
     }
 </style>
 
-<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/hac-kers" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -422,6 +425,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
         
         <!-- 代码块折行 -->
@@ -433,23 +439,202 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="已完成训练的VGG模型的使用方法"><a href="#已完成训练的VGG模型的使用方法" class="headerlink" title="已完成训练的VGG模型的使用方法"></a>已完成训练的VGG模型的使用方法</h1><p>使用ImageNet数据集中已经提前训练好网络参数的VGG-16模型来实现对未知图片进行自动分类处理的程序。<br>ImageNet是斯坦福大学从互联网上收集的已分类的图像数据集，ILSVRC竞赛常用（ImageNet Large Scale Visual Recognition Challenge）<br>Torch中可以轻松使用ImageNet数据集中的ILSVRC2012数据集（分类数：1000种；训练用数据：120万张；验证用数据：5万张；测试用数据：10万张）</p>
-<h2 id="文件夹准备"><a href="#文件夹准备" class="headerlink" title="文件夹准备"></a>文件夹准备</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"><span class="keyword">import</span> zipfile</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#·文件夹“data”不存在时制作</span></span><br><span class="line">data_dir = <span class="string">&quot;./data/&quot;</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(data_dir):</span><br><span class="line">    os.mkdir(data_dir)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#下载ImageNet的class_index</span></span><br><span class="line"><span class="comment">#是在Keras准备的。</span></span><br><span class="line"><span class="comment"># https://github.com/fchollet/deep-learning-models/blob/master/imagenet_utils.py</span></span><br><span class="line"></span><br><span class="line">url = <span class="string">&quot;https://s3.amazonaws.com/deep-learning-models/image-models/imagenet_class_index.json&quot;</span></span><br><span class="line">save_path = os.path.join(data_dir, <span class="string">&quot;imagenet_class_index.json&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(save_path):</span><br><span class="line">    urllib.request.urlretrieve(url, save_path)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#1.3下载并解压缩你要用到的蚂蚁和蜜蜂的图像数据</span></span><br><span class="line"><span class="comment"># 是在PyTorch指南课程中准备的。</span></span><br><span class="line"><span class="comment"># https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html</span></span><br><span class="line"></span><br><span class="line">url = <span class="string">&quot;https://download.pytorch.org/tutorial/hymenoptera_data.zip&quot;</span></span><br><span class="line">save_path = os.path.join(data_dir, <span class="string">&quot;hymenoptera_data.zip&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(save_path):</span><br><span class="line">    urllib.request.urlretrieve(url, save_path)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 读取ZIP文件</span></span><br><span class="line">    <span class="built_in">zip</span> = zipfile.ZipFile(save_path)</span><br><span class="line">    <span class="built_in">zip</span>.extractall(data_dir)  <span class="comment"># 解压缩ZIP</span></span><br><span class="line">    <span class="built_in">zip</span>.close()  <span class="comment"># 盗取ZIP文件</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#删除ZIP文件</span></span><br><span class="line">    os.remove(save_path)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">【※（实施完）】</span><br><span class="line"></span><br><span class="line">手动下载金毛寻回犬的图像</span><br><span class="line"></span><br><span class="line">https://pixabay.com/ja/photos/goldenretriever-%E7%8A%AC-<span class="number">3724972</span>/</span><br><span class="line">640x426尺寸的图像</span><br><span class="line">（图片版权信息:CCO Creative Commons，免费商业使用，无需标注归属）</span><br><span class="line"></span><br><span class="line">将其直接放在文件夹“data”的下方。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="文件夹准备"><a href="#文件夹准备" class="headerlink" title="文件夹准备"></a>文件夹准备</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> os
+<span class="token keyword">import</span> urllib<span class="token punctuation">.</span>request
+<span class="token keyword">import</span> zipfile
+
+
+
+<span class="token comment">#·文件夹“data”不存在时制作</span>
+data_dir <span class="token operator">=</span> <span class="token string">"./data/"</span>
+<span class="token keyword">if</span> <span class="token keyword">not</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span>data_dir<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    os<span class="token punctuation">.</span>mkdir<span class="token punctuation">(</span>data_dir<span class="token punctuation">)</span>
+
+
+
+<span class="token comment">#下载ImageNet的class_index</span>
+<span class="token comment">#是在Keras准备的。</span>
+<span class="token comment"># https://github.com/fchollet/deep-learning-models/blob/master/imagenet_utils.py</span>
+
+url <span class="token operator">=</span> <span class="token string">"https://s3.amazonaws.com/deep-learning-models/image-models/imagenet_class_index.json"</span>
+save_path <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>data_dir<span class="token punctuation">,</span> <span class="token string">"imagenet_class_index.json"</span><span class="token punctuation">)</span>
+
+<span class="token keyword">if</span> <span class="token keyword">not</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span>save_path<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>urlretrieve<span class="token punctuation">(</span>url<span class="token punctuation">,</span> save_path<span class="token punctuation">)</span>
+
+
+
+<span class="token comment">#1.3下载并解压缩你要用到的蚂蚁和蜜蜂的图像数据</span>
+<span class="token comment"># 是在PyTorch指南课程中准备的。</span>
+<span class="token comment"># https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html</span>
+
+url <span class="token operator">=</span> <span class="token string">"https://download.pytorch.org/tutorial/hymenoptera_data.zip"</span>
+save_path <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>data_dir<span class="token punctuation">,</span> <span class="token string">"hymenoptera_data.zip"</span><span class="token punctuation">)</span>
+
+<span class="token keyword">if</span> <span class="token keyword">not</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span>save_path<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>urlretrieve<span class="token punctuation">(</span>url<span class="token punctuation">,</span> save_path<span class="token punctuation">)</span>
+
+    <span class="token comment"># 读取ZIP文件</span>
+    <span class="token builtin">zip</span> <span class="token operator">=</span> zipfile<span class="token punctuation">.</span>ZipFile<span class="token punctuation">(</span>save_path<span class="token punctuation">)</span>
+    <span class="token builtin">zip</span><span class="token punctuation">.</span>extractall<span class="token punctuation">(</span>data_dir<span class="token punctuation">)</span>  <span class="token comment"># 解压缩ZIP</span>
+    <span class="token builtin">zip</span><span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment"># 盗取ZIP文件</span>
+
+    <span class="token comment">#删除ZIP文件</span>
+    os<span class="token punctuation">.</span>remove<span class="token punctuation">(</span>save_path<span class="token punctuation">)</span>
+
+
+
+
+
+【※（实施完）】
+
+手动下载金毛寻回犬的图像
+
+https<span class="token punctuation">:</span><span class="token operator">//</span>pixabay<span class="token punctuation">.</span>com<span class="token operator">/</span>ja<span class="token operator">/</span>photos<span class="token operator">/</span>goldenretriever<span class="token operator">-</span><span class="token operator">%</span>E7<span class="token operator">%</span>8A<span class="token operator">%</span>AC<span class="token operator">-</span><span class="token number">3724972</span><span class="token operator">/</span>
+640x426尺寸的图像
+（图片版权信息<span class="token punctuation">:</span>CCO Creative Commons，免费商业使用，无需标注归属）
+
+将其直接放在文件夹“data”的下方。
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><p>导入软件包</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入软件包</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torchvision</span><br><span class="line"><span class="keyword">from</span> torchvision <span class="keyword">import</span> models, transforms</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 导入软件包</span>
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+<span class="token keyword">import</span> json
+<span class="token keyword">from</span> PIL <span class="token keyword">import</span> Image
+<span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
+<span class="token operator">%</span>matplotlib inline
+
+<span class="token keyword">import</span> torch
+<span class="token keyword">import</span> torchvision
+<span class="token keyword">from</span> torchvision <span class="token keyword">import</span> models<span class="token punctuation">,</span> transforms
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>VGG-16已完成训练模型的载入</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#VGG-16已完成训练模型的载入</span></span><br><span class="line"><span class="comment"># 第一次执行时，由于需要从网络下载学习好的参数数据，因此执行时间会稍微长一些</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#生成VGG-16模型的实例</span></span><br><span class="line">use_pretrained = <span class="literal">True</span>  <span class="comment"># 使用已经训练好的参数</span></span><br><span class="line">net = models.vgg16(pretrained=use_pretrained)</span><br><span class="line">net.<span class="built_in">eval</span>()  <span class="comment"># 设置为推测模式</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#  输出模型的网络结构</span></span><br><span class="line"><span class="built_in">print</span>(net)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#VGG-16已完成训练模型的载入</span>
+<span class="token comment"># 第一次执行时，由于需要从网络下载学习好的参数数据，因此执行时间会稍微长一些</span>
+
+<span class="token comment">#生成VGG-16模型的实例</span>
+use_pretrained <span class="token operator">=</span> <span class="token boolean">True</span>  <span class="token comment"># 使用已经训练好的参数</span>
+net <span class="token operator">=</span> models<span class="token punctuation">.</span>vgg16<span class="token punctuation">(</span>pretrained<span class="token operator">=</span>use_pretrained<span class="token punctuation">)</span>
+net<span class="token punctuation">.</span><span class="token builtin">eval</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment"># 设置为推测模式</span>
+
+<span class="token comment">#  输出模型的网络结构</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>net<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>实现一个对输入图片进行预处理的类BaseTransform()<br>注意：这里的__call__()作用是，如果不指定函数名而直接调用实例的变量名，<strong>call</strong>()函数内的代码直接会被执行。这里等于说就是直接返回一个被预处理过后的一个图片。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 对输入图片进行预处理的类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">BaseTransform</span>():</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    调整图片的尺寸，并对颜色进行规范化。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Attributes</span></span><br><span class="line"><span class="string">    ----------</span></span><br><span class="line"><span class="string">    resize : int</span></span><br><span class="line"><span class="string">       指定调整尺寸后图片的大小</span></span><br><span class="line"><span class="string">    mean : (R, G, B)</span></span><br><span class="line"><span class="string">       各个颜色通道的平均值</span></span><br><span class="line"><span class="string">    std : (R, G, B)</span></span><br><span class="line"><span class="string">       各个颜色通道的标准偏差</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, resize, mean, std</span>):</span><br><span class="line">        self.base_transform = transforms.Compose([</span><br><span class="line">            transforms.Resize(resize),  <span class="comment">#将较短边的长度作为resize的大小</span></span><br><span class="line">            transforms.CenterCrop(resize),  <span class="comment">#从图片中央截取resize × resize大小的区域</span></span><br><span class="line">            transforms.ToTensor(),  <span class="comment">#转换为Torch张量</span></span><br><span class="line">            transforms.Normalize(mean, std)  <span class="comment">#颜色信息的正规化</span></span><br><span class="line">        ])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__call__</span>(<span class="params">self, img</span>):</span><br><span class="line">        <span class="keyword">return</span> self.base_transform(img)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 对输入图片进行预处理的类</span>
+<span class="token keyword">class</span> <span class="token class-name">BaseTransform</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""
+    调整图片的尺寸，并对颜色进行规范化。
+
+    Attributes
+    ----------
+    resize : int
+       指定调整尺寸后图片的大小
+    mean : (R, G, B)
+       各个颜色通道的平均值
+    std : (R, G, B)
+       各个颜色通道的标准偏差
+    """</span>
+
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> resize<span class="token punctuation">,</span> mean<span class="token punctuation">,</span> std<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>base_transform <span class="token operator">=</span> transforms<span class="token punctuation">.</span>Compose<span class="token punctuation">(</span><span class="token punctuation">[</span>
+            transforms<span class="token punctuation">.</span>Resize<span class="token punctuation">(</span>resize<span class="token punctuation">)</span><span class="token punctuation">,</span>  <span class="token comment">#将较短边的长度作为resize的大小</span>
+            transforms<span class="token punctuation">.</span>CenterCrop<span class="token punctuation">(</span>resize<span class="token punctuation">)</span><span class="token punctuation">,</span>  <span class="token comment">#从图片中央截取resize × resize大小的区域</span>
+            transforms<span class="token punctuation">.</span>ToTensor<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>  <span class="token comment">#转换为Torch张量</span>
+            transforms<span class="token punctuation">.</span>Normalize<span class="token punctuation">(</span>mean<span class="token punctuation">,</span> std<span class="token punctuation">)</span>  <span class="token comment">#颜色信息的正规化</span>
+        <span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">__call__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> img<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>base_transform<span class="token punctuation">(</span>img<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>plt.show()一下预处理的效果，可省略.</p>
-<p>注意：由于tentor即张量为( 颜色、高度、宽度 )，转换成np后需要转换为 ( 高度、宽度、颜色 )img_transformed &#x3D; img_transformed.numpy().transpose((1, 2, 0))，如何限制范围为0~1，img_transformed &#x3D; np.clip(img_transformed, 0, 1)</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#确认图像预处理的结果</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 1. 读取图片</span></span><br><span class="line">image_file_path = <span class="string">&#x27;./xxxxxxxxxx/xxx.jpg&#x27;</span></span><br><span class="line">img = Image.<span class="built_in">open</span>(image_file_path)  <span class="comment"># [高度][宽度][颜色RGB]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2.  显示处理前的图片示</span></span><br><span class="line">plt.imshow(img)</span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 同时显示预处理前后的图片</span></span><br><span class="line">resize = <span class="number">224</span></span><br><span class="line">mean = (<span class="number">0.485</span>, <span class="number">0.456</span>, <span class="number">0.406</span>)</span><br><span class="line">std = (<span class="number">0.229</span>, <span class="number">0.224</span>, <span class="number">0.225</span>)</span><br><span class="line">transform = BaseTransform(resize, mean, std)</span><br><span class="line">img_transformed = transform(img)  <span class="comment"># torch.Size([3, 224, 224])</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将 ( 颜色、高度、宽度 ) 转换为 ( 高度、宽度、颜色 )，并将取值范围限制在0~1</span></span><br><span class="line">img_transformed = img_transformed.numpy().transpose((<span class="number">1</span>, <span class="number">2</span>, <span class="number">0</span>))</span><br><span class="line">img_transformed = np.clip(img_transformed, <span class="number">0</span>, <span class="number">1</span>)</span><br><span class="line">plt.imshow(img_transformed)</span><br><span class="line">plt.show()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>注意：由于tentor即张量为( 颜色、高度、宽度 )，转换成np后需要转换为 ( 高度、宽度、颜色 )img_transformed = img_transformed.numpy().transpose((1, 2, 0))，如何限制范围为0~1，img_transformed = np.clip(img_transformed, 0, 1)</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#确认图像预处理的结果</span>
+
+<span class="token comment"># 1. 读取图片</span>
+image_file_path <span class="token operator">=</span> <span class="token string">'./xxxxxxxxxx/xxx.jpg'</span>
+img <span class="token operator">=</span> Image<span class="token punctuation">.</span><span class="token builtin">open</span><span class="token punctuation">(</span>image_file_path<span class="token punctuation">)</span>  <span class="token comment"># [高度][宽度][颜色RGB]</span>
+
+<span class="token comment"># 2.  显示处理前的图片示</span>
+plt<span class="token punctuation">.</span>imshow<span class="token punctuation">(</span>img<span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 3. 同时显示预处理前后的图片</span>
+resize <span class="token operator">=</span> <span class="token number">224</span>
+mean <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">0.485</span><span class="token punctuation">,</span> <span class="token number">0.456</span><span class="token punctuation">,</span> <span class="token number">0.406</span><span class="token punctuation">)</span>
+std <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">0.229</span><span class="token punctuation">,</span> <span class="token number">0.224</span><span class="token punctuation">,</span> <span class="token number">0.225</span><span class="token punctuation">)</span>
+transform <span class="token operator">=</span> BaseTransform<span class="token punctuation">(</span>resize<span class="token punctuation">,</span> mean<span class="token punctuation">,</span> std<span class="token punctuation">)</span>
+img_transformed <span class="token operator">=</span> transform<span class="token punctuation">(</span>img<span class="token punctuation">)</span>  <span class="token comment"># torch.Size([3, 224, 224])</span>
+
+<span class="token comment"># 将 ( 颜色、高度、宽度 ) 转换为 ( 高度、宽度、颜色 )，并将取值范围限制在0~1</span>
+img_transformed <span class="token operator">=</span> img_transformed<span class="token punctuation">.</span>numpy<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>transpose<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+img_transformed <span class="token operator">=</span> np<span class="token punctuation">.</span>clip<span class="token punctuation">(</span>img_transformed<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>imshow<span class="token punctuation">(</span>img_transformed<span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>实现一个处理输出后结果进行预测的类ILSVRCPredictor()，即实现将VGG16模型1000维的输出结果转换为分类标签的ILSVRCPredictor类。</p>
 <p>从VGG-16模型输出的数值被保存到大小为torch.Size([1,1000])的PyTorch张量中，这里需要将其转换为NumPy变量。因此调用.debatch(),将输出结果从网路中分离出来；然后，对被debatch的张量进行.numpy()调用，将其转换为numpy变量，并用np.argmax()获取最大值的索引。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">ILSVRC_class_index = json.load(<span class="built_in">open</span>(<span class="string">&#x27;./data/imagenet_class_index.json&#x27;</span>, <span class="string">&#x27;r&#x27;</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 根据输出结果对标签进行预测的后处理类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ILSVRCPredictor</span>():</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    根据ILSVRC数据，从模型的输出结果计算出分类标签</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Attributes</span></span><br><span class="line"><span class="string">    ----------</span></span><br><span class="line"><span class="string">    class_index : dictionary</span></span><br><span class="line"><span class="string">           将类的index与标签名关联起来的字典型变量</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, class_index</span>):</span><br><span class="line">        self.class_index = class_index</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">predict_max</span>(<span class="params">self, out</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        获得概率最大的ILSVRC分类标签名</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        Parameters</span></span><br><span class="line"><span class="string">        ----------</span></span><br><span class="line"><span class="string">        out : torch.Size([1, 1000])</span></span><br><span class="line"><span class="string">            从Net中输出结果</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        Returns</span></span><br><span class="line"><span class="string">        -------</span></span><br><span class="line"><span class="string">        predicted_label_name : str</span></span><br><span class="line"><span class="string">            预测概率最高的分类标签的名称</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        maxid = np.argmax(out.detach().numpy())</span><br><span class="line">        <span class="comment">#str()将数字-&gt;字符，class_index是字典，所以key是字符，故str(),再然后values是一个列表，列表第二个元素是#所分类别的名字,故[1]</span></span><br><span class="line">        predicted_label_name = self.class_index[<span class="built_in">str</span>(maxid)][<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> predicted_label_name</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">ILSVRC_class_index <span class="token operator">=</span> json<span class="token punctuation">.</span>load<span class="token punctuation">(</span><span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'./data/imagenet_class_index.json'</span><span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 根据输出结果对标签进行预测的后处理类</span>
+<span class="token keyword">class</span> <span class="token class-name">ILSVRCPredictor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""
+    根据ILSVRC数据，从模型的输出结果计算出分类标签
+
+    Attributes
+    ----------
+    class_index : dictionary
+           将类的index与标签名关联起来的字典型变量
+    """</span>
+
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> class_index<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>class_index <span class="token operator">=</span> class_index
+
+    <span class="token keyword">def</span> <span class="token function">predict_max</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> out<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
+        获得概率最大的ILSVRC分类标签名
+
+        Parameters
+        ----------
+        out : torch.Size([1, 1000])
+            从Net中输出结果
+
+        Returns
+        -------
+        predicted_label_name : str
+            预测概率最高的分类标签的名称
+        """</span>
+        maxid <span class="token operator">=</span> np<span class="token punctuation">.</span>argmax<span class="token punctuation">(</span>out<span class="token punctuation">.</span>detach<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>numpy<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token comment">#str()将数字-&gt;字符，class_index是字典，所以key是字符，故str(),再然后values是一个列表，列表第二个元素是#所分类别的名字,故[1]</span>
+        predicted_label_name <span class="token operator">=</span> self<span class="token punctuation">.</span>class_index<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">(</span>maxid<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+
+        <span class="token keyword">return</span> predicted_label_name
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>调用已完成学习的VGG开始预测手头的图片啦</p>
 <p>整理一下思路，输入的图片经过BaseTransform()预处理转换后，被作为VGG-16模型的输入数据输入。模型输出的1000维数据又经过ISVRCPredicor的处理，被转换为预测概率最高的分类标签名，并作为最终的输出结果返回。</p>
-<p>注意，在将图片输入PyTorch网络中，需一小批次的形式传递，故使用.unsqueeze_(0),（英语单词非压缩，即扩展）0代表是第一维度，作用就是扩展一个维度，在整体大小不变的情况下，且增大的维度是第一维度（确实就batch_size&#x3D;1）。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 载入ILSVRC的标签信息，并生成字典型变量</span></span><br><span class="line">ILSVRC_class_index = json.load(<span class="built_in">open</span>(<span class="string">&#x27;./data/imagenet_class_index.json&#x27;</span>, <span class="string">&#x27;r&#x27;</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成ILSVRCPredictor的实例</span></span><br><span class="line">predictor = ILSVRCPredictor(ILSVRC_class_index)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取输入的图像</span></span><br><span class="line">image_file_path = <span class="string">&#x27;./xxxx/xxxx.jpg&#x27;</span></span><br><span class="line">img = Image.<span class="built_in">open</span>(image_file_path)  <span class="comment"># [ 高度 ][ 宽度 ][ 颜色RGB]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 完成预处理后，添加批次尺寸的维度</span></span><br><span class="line">transform = BaseTransform(resize, mean, std)  <span class="comment">#创建预处理类</span></span><br><span class="line">img_transformed = transform(img)  <span class="comment"># torch.Size([3, 224, 224])</span></span><br><span class="line">inputs = img_transformed.unsqueeze_(<span class="number">0</span>)  <span class="comment"># torch.Size([1, 3, 224, 224])</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 输入数据到模型中，并将模型的输出转换为标签</span></span><br><span class="line">out = net(inputs)  <span class="comment"># torch.Size([1, 1000])</span></span><br><span class="line">result = predictor.predict_max(out)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出预测结果</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;输入图像的预测结果：&quot;</span>, result)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>注意，在将图片输入PyTorch网络中，需一小批次的形式传递，故使用.unsqueeze_(0),（英语单词非压缩，即扩展）0代表是第一维度，作用就是扩展一个维度，在整体大小不变的情况下，且增大的维度是第一维度（确实就batch_size=1）。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 载入ILSVRC的标签信息，并生成字典型变量</span>
+ILSVRC_class_index <span class="token operator">=</span> json<span class="token punctuation">.</span>load<span class="token punctuation">(</span><span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'./data/imagenet_class_index.json'</span><span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 生成ILSVRCPredictor的实例</span>
+predictor <span class="token operator">=</span> ILSVRCPredictor<span class="token punctuation">(</span>ILSVRC_class_index<span class="token punctuation">)</span>
+
+<span class="token comment"># 读取输入的图像</span>
+image_file_path <span class="token operator">=</span> <span class="token string">'./xxxx/xxxx.jpg'</span>
+img <span class="token operator">=</span> Image<span class="token punctuation">.</span><span class="token builtin">open</span><span class="token punctuation">(</span>image_file_path<span class="token punctuation">)</span>  <span class="token comment"># [ 高度 ][ 宽度 ][ 颜色RGB]</span>
+
+<span class="token comment"># 完成预处理后，添加批次尺寸的维度</span>
+transform <span class="token operator">=</span> BaseTransform<span class="token punctuation">(</span>resize<span class="token punctuation">,</span> mean<span class="token punctuation">,</span> std<span class="token punctuation">)</span>  <span class="token comment">#创建预处理类</span>
+img_transformed <span class="token operator">=</span> transform<span class="token punctuation">(</span>img<span class="token punctuation">)</span>  <span class="token comment"># torch.Size([3, 224, 224])</span>
+inputs <span class="token operator">=</span> img_transformed<span class="token punctuation">.</span>unsqueeze_<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>  <span class="token comment"># torch.Size([1, 3, 224, 224])</span>
+
+<span class="token comment"># 输入数据到模型中，并将模型的输出转换为标签</span>
+out <span class="token operator">=</span> net<span class="token punctuation">(</span>inputs<span class="token punctuation">)</span>  <span class="token comment"># torch.Size([1, 1000])</span>
+result <span class="token operator">=</span> predictor<span class="token punctuation">.</span>predict_max<span class="token punctuation">(</span>out<span class="token punctuation">)</span>
+
+<span class="token comment"># 输出预测结果</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"输入图像的预测结果："</span><span class="token punctuation">,</span> result<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
                 
             </div>
             <hr/>
@@ -475,7 +660,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2023/10/14/%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB-VGG-1/">http://example.com/2023/10/14/%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB-VGG-1/</a>
+                    <a href="https://lwqblog.top/2023/10/14/%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB-VGG-1/">https://lwqblog.top/2023/10/14/%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB-VGG-1/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -573,33 +758,33 @@
     </div>
 
     
-        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
-<link rel="stylesheet" href="/css/my-gitalk.css">
 
-<div class="card gitalk-card" data-aos="fade-up">
+    
+        <link rel="stylesheet" href="/libs/gitment/gitment-default.css">
+<link rel="stylesheet" href="/css/gitment.css">
+
+<div class="gitment-card card" data-aos="fade-up">
     <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
         <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
         <span>评论</span>
     </div>
-    <div id="gitalk-container" class="card-content"></div>
+    <div id="gitment-content" class="card-content"></div>
 </div>
 
-<script src="/libs/gitalk/gitalk.min.js"></script>
+<script src="/libs/gitment/gitment.js"></script>
 <script>
-    let gitalk = new Gitalk({
-        clientID: '',
-        clientSecret: '',
-        repo: '',
-        owner: '',
-        admin: null,
-        id: '2023-10-14T15-17-04',
-        distractionFreeMode: false  // Facebook-like distraction free mode
-    });
+var gitment = new Gitment({
+    id: 'Sat Oct 14 2023 15:17:04 GMT+0800',
+    owner: '',
+    repo: '',
+    oauth: {
+        client_id: '',
+        client_secret: ''
+    }
+});
 
-    gitalk.render('gitalk-container');
+gitment.render('gitment-content');
 </script>
-
-    
 
     
 
@@ -728,6 +913,9 @@
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->
@@ -1121,7 +1309,7 @@ $(function () {
         <script type="text/javascript">
           var defaultEncoding = 2; //网站编写字体是否繁体，1-繁体，2-简体
           var translateDelay = 0; //延迟时间,若不在前, 要设定延迟翻译时间, 如100表示100ms,默认为0
-          var cookieDomain = "http://example.com"; //Cookie地址, 一定要设定, 通常为你的网址
+          var cookieDomain = "https://lwqblog.top"; //Cookie地址, 一定要设定, 通常为你的网址
           var msgToTraditionalChinese = "繁"; //此处可以更改为你想要显示的文字
           var msgToSimplifiedChinese = "简"; //同上，但两处均不建议更改
           var translateButtonId = "translateLink"; //默认互换id

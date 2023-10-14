@@ -4,11 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="深度学习入门笔记, Codehasuki">
+    <meta name="keywords" content="深度学习入门笔记, LWQ">
     <meta name="description" content="激活函数activation function :将输入信号的总和转换为输出信号，作用就是决定如何激活输入信号的总和。
-sigmoid funch(x) &amp;#x3D; 1 &amp;#x2F; 1 + exp(-x)
+sigmoid funch(x) = 1 / 1 + exp(-x)
 阶跃函数相当于感知机  
-12">
+def step_fun">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +20,7 @@ sigmoid funch(x) &amp;#x3D; 1 &amp;#x2F; 1 + exp(-x)
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>深度学习入门笔记 | Codehasuki</title>
+    <title>深度学习入门笔记 | LWQ</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -55,7 +55,10 @@ sigmoid funch(x) &amp;#x3D; 1 &amp;#x2F; 1 + exp(-x)
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0"></head>
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="LWQ" type="application/atom+xml">
+</head>
 
 
 <body>
@@ -67,7 +70,7 @@ sigmoid funch(x) &amp;#x3D; 1 &amp;#x2F; 1 + exp(-x)
                     
                     <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
-                    <span class="logo-span">Codehasuki</span>
+                    <span class="logo-span">LWQ</span>
                 </a>
             </div>
             
@@ -171,7 +174,7 @@ sigmoid funch(x) &amp;#x3D; 1 &amp;#x2F; 1 + exp(-x)
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">Codehasuki</div>
+        <div class="logo-name">LWQ</div>
         <div class="logo-desc">
             
             我要上UT
@@ -261,7 +264,7 @@ sigmoid funch(x) &amp;#x3D; 1 &amp;#x2F; 1 + exp(-x)
         
         <li><div class="divider"></div></li>
         <li>
-            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+            <a href="https://github.com/hac-kers" class="waves-effect waves-light" target="_blank">
                 <i class="fab fa-github-square fa-fw"></i>Fork Me
             </a>
         </li>
@@ -318,7 +321,7 @@ sigmoid funch(x) &amp;#x3D; 1 &amp;#x2F; 1 + exp(-x)
     }
 </style>
 
-<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/hac-kers" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -425,6 +428,9 @@ sigmoid funch(x) &amp;#x3D; 1 &amp;#x2F; 1 + exp(-x)
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
         
         <!-- 代码块折行 -->
@@ -436,12 +442,22 @@ sigmoid funch(x) &amp;#x3D; 1 &amp;#x2F; 1 + exp(-x)
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="激活函数"><a href="#激活函数" class="headerlink" title="激活函数"></a>激活函数</h2><p>activation function :将输入信号的总和转换为输出信号，作用就是决定如何激活输入信号的总和。</p>
-<h3 id="sigmoid-func"><a href="#sigmoid-func" class="headerlink" title="sigmoid func"></a>sigmoid func</h3><p>h(x) &#x3D; 1 &#x2F; 1 + exp(-x)</p>
+<h3 id="sigmoid-func"><a href="#sigmoid-func" class="headerlink" title="sigmoid func"></a>sigmoid func</h3><p>h(x) = 1 / 1 + exp(-x)</p>
 <h3 id="阶跃函数"><a href="#阶跃函数" class="headerlink" title="阶跃函数"></a>阶跃函数</h3><p>相当于感知机  </p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">step_fun</span>(<span class="params">x</span>):</span><br><span class="line">  <span class="keyword">if</span> X &gt; <span class="number">0</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"><span class="comment">#np的类型</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">step_fun</span>(<span class="params">x</span>):  </span><br><span class="line">  y = x &gt; <span class="number">0</span></span><br><span class="line">  <span class="keyword">return</span> y.astype(np.<span class="built_in">int</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">step_fun</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token keyword">if</span> X <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> <span class="token number">1</span>
+  <span class="token keyword">else</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> <span class="token number">0</span>
+<span class="token comment">#np的类型</span>
+<span class="token keyword">def</span> <span class="token function">step_fun</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span>  
+  y <span class="token operator">=</span> x <span class="token operator">&gt;</span> <span class="token number">0</span>
+  <span class="token keyword">return</span> y<span class="token punctuation">.</span>astype<span class="token punctuation">(</span>np<span class="token punctuation">.</span><span class="token builtin">int</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="ReLU函数"><a href="#ReLU函数" class="headerlink" title="ReLU函数"></a>ReLU函数</h3><p>Rectified Linear Unit</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">relu</span>(<span class="params">X</span>):</span><br><span class="line">  <span class="keyword">return</span> np.maximum(<span class="number">0</span>,x)</span><br></pre></td></tr></table></figure>
-<h2 id="nn重要概念"><a href="#nn重要概念" class="headerlink" title="nn重要概念"></a>nn重要概念</h2><p>神经网络内积：<br><img src="/2023/10/14/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/20181219152354924.png"><br>![](屏幕截图 2023-10-14 142846.png)<br>输出层： softmax（）：yk &#x3D; exp (ak) &#x2F; exp (a1+a2+…+an)</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">relu</span><span class="token punctuation">(</span>X<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token keyword">return</span> np<span class="token punctuation">.</span>maximum<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span>x<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="nn重要概念"><a href="#nn重要概念" class="headerlink" title="nn重要概念"></a>nn重要概念</h2><p>神经网络内积：<br><img src="/2023/10/14/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/20181219152354924.png"><br>![](屏幕截图 2023-10-14 142846.png)<br>输出层： softmax（）：yk = exp (ak) / exp (a1+a2+…+an)</p>
 
                 
             </div>
@@ -468,7 +484,7 @@ sigmoid funch(x) &amp;#x3D; 1 &amp;#x2F; 1 + exp(-x)
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2023/10/14/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/">http://example.com/2023/10/14/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/</a>
+                    <a href="https://lwqblog.top/2023/10/14/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/">https://lwqblog.top/2023/10/14/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -566,33 +582,33 @@ sigmoid funch(x) &amp;#x3D; 1 &amp;#x2F; 1 + exp(-x)
     </div>
 
     
-        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
-<link rel="stylesheet" href="/css/my-gitalk.css">
 
-<div class="card gitalk-card" data-aos="fade-up">
+    
+        <link rel="stylesheet" href="/libs/gitment/gitment-default.css">
+<link rel="stylesheet" href="/css/gitment.css">
+
+<div class="gitment-card card" data-aos="fade-up">
     <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
         <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
         <span>评论</span>
     </div>
-    <div id="gitalk-container" class="card-content"></div>
+    <div id="gitment-content" class="card-content"></div>
 </div>
 
-<script src="/libs/gitalk/gitalk.min.js"></script>
+<script src="/libs/gitment/gitment.js"></script>
 <script>
-    let gitalk = new Gitalk({
-        clientID: '',
-        clientSecret: '',
-        repo: '',
-        owner: '',
-        admin: null,
-        id: '2023-10-14T14-02-17',
-        distractionFreeMode: false  // Facebook-like distraction free mode
-    });
+var gitment = new Gitment({
+    id: 'Sat Oct 14 2023 14:02:17 GMT+0800',
+    owner: '',
+    repo: '',
+    oauth: {
+        client_id: '',
+        client_secret: ''
+    }
+});
 
-    gitalk.render('gitalk-container');
+gitment.render('gitment-content');
 </script>
-
-    
 
     
 
@@ -727,6 +743,9 @@ sigmoid funch(x) &amp;#x3D; 1 &amp;#x2F; 1 + exp(-x)
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->
@@ -1120,7 +1139,7 @@ $(function () {
         <script type="text/javascript">
           var defaultEncoding = 2; //网站编写字体是否繁体，1-繁体，2-简体
           var translateDelay = 0; //延迟时间,若不在前, 要设定延迟翻译时间, 如100表示100ms,默认为0
-          var cookieDomain = "http://example.com"; //Cookie地址, 一定要设定, 通常为你的网址
+          var cookieDomain = "https://lwqblog.top"; //Cookie地址, 一定要设定, 通常为你的网址
           var msgToTraditionalChinese = "繁"; //此处可以更改为你想要显示的文字
           var msgToSimplifiedChinese = "简"; //同上，但两处均不建议更改
           var translateButtonId = "translateLink"; //默认互换id
