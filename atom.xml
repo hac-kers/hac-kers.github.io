@@ -6,7 +6,7 @@
   <link href="https://lwqblog.top/atom.xml" rel="self"/>
   
   <link href="https://lwqblog.top/"/>
-  <updated>2023-10-14T08:58:58.637Z</updated>
+  <updated>2023-10-19T15:30:42.719Z</updated>
   <id>https://lwqblog.top/</id>
   
   <author>
@@ -15,6 +15,87 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Pyside6实践_1</title>
+    <link href="https://lwqblog.top/2023/10/19/pyside6-shi-jian-1/"/>
+    <id>https://lwqblog.top/2023/10/19/pyside6-shi-jian-1/</id>
+    <published>2023-10-19T13:54:08.000Z</published>
+    <updated>2023-10-19T15:30:42.719Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;做实验的时候想拷贝电子参考书代码的时候发现代码都数字序号，手动删除太麻烦了，于是边想着写一个python脚本删除序号，然后不知道怎么突发奇想想试试Python GUI。&lt;/p&gt;
+&lt;p&gt;也是第一次接触，故记录一下。&lt;/p&gt;
+&lt;h3 id=&quot;源代码&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="PySide6" scheme="https://lwqblog.top/categories/PySide6/"/>
+    
+    <category term="Windows应用开发" scheme="https://lwqblog.top/categories/PySide6/Windows%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="PySide6" scheme="https://lwqblog.top/tags/PySide6/"/>
+    
+    <category term="Windows应用开发" scheme="https://lwqblog.top/tags/Windows%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PySide6上手</title>
+    <link href="https://lwqblog.top/2023/10/19/pyside6-shang-shou/"/>
+    <id>https://lwqblog.top/2023/10/19/pyside6-shang-shou/</id>
+    <published>2023-10-19T03:09:44.000Z</published>
+    <updated>2023-10-19T14:18:58.518Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;创建第一个QtWidgets程序&quot;&gt;&lt;a href=&quot;#创建第一个QtWidgets程序&quot; class=&quot;headerlink&quot; title=&quot;创建第一个QtWidgets程序&quot;&gt;&lt;/a&gt;创建第一个QtWidgets程序&lt;/h1&gt;&lt;pre</summary>
+        
+      
+    
+    
+    
+    <category term="PySide6" scheme="https://lwqblog.top/categories/PySide6/"/>
+    
+    
+    <category term="PySide6" scheme="https://lwqblog.top/tags/PySide6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ruby入门学习(1)</title>
+    <link href="https://lwqblog.top/2023/10/17/ruby-ru-men-xue-xi-1/"/>
+    <id>https://lwqblog.top/2023/10/17/ruby-ru-men-xue-xi-1/</id>
+    <published>2023-10-17T12:07:53.000Z</published>
+    <updated>2023-10-19T14:17:27.954Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;块&quot;&gt;&lt;a href=&quot;#块&quot; class=&quot;headerlink&quot; title=&quot;块&quot;&gt;&lt;/a&gt;块&lt;/h1&gt;&lt;h3 id=&quot;yield用法&quot;&gt;&lt;a href=&quot;#yield用法&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Ruby" scheme="https://lwqblog.top/categories/Ruby/"/>
+    
+    
+    <category term="Ruby" scheme="https://lwqblog.top/tags/Ruby/"/>
+    
+  </entry>
   
   <entry>
     <title>图像分类(VGG)(1)</title>
@@ -100,7 +181,7 @@
     <link href="https://lwqblog.top/2023/04/12/dong-shou-xue-shen-du-xue-xi-1/"/>
     <id>https://lwqblog.top/2023/04/12/dong-shou-xue-shen-du-xue-xi-1/</id>
     <published>2023-04-12T11:54:50.000Z</published>
-    <updated>2023-04-12T14:07:52.708Z</updated>
+    <updated>2023-10-19T14:21:42.864Z</updated>
     
     
       
@@ -150,7 +231,7 @@
     <link href="https://lwqblog.top/2023/03/28/hello-world/"/>
     <id>https://lwqblog.top/2023/03/28/hello-world/</id>
     <published>2023-03-28T07:53:28.058Z</published>
-    <updated>2023-03-28T16:58:55.592Z</updated>
+    <updated>2023-10-19T14:22:06.165Z</updated>
     
     
       
