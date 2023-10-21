@@ -656,6 +656,76 @@ Here are my results. Referring to section <span class="token function selector">
 <span class="token function selector">\end</span><span class="token punctuation">{</span><span class="token keyword">description</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>在 <code>description</code> 环境中，项目符号通常是项目的标题或标签，而不是简单的符号或数字。每个项目都可以用方括号包围的文本来定义项目符号。</p>
+<h3 id="页码设置相关的命令、"><a href="#页码设置相关的命令、" class="headerlink" title="页码设置相关的命令、"></a>页码设置相关的命令、</h3><p>在LaTex中，与页码和页面设置相关的命令有\pagestyle{type}，\thispagestyle{type}，setcounter{page}{number}，\pagenumbering{style}。<br>\pagestyle{type}和\thispagestyle{type}命令用于设置页面样式（页眉和页脚）。\pagestyle{type}和\thispagestyle{type}的主要区别在于\pagestyle{type}对后续所有页面都有效，而\thispagestyle{type}仅仅对当前页面有效。在LaTeX中，默认提供了以下四种页面样式：</p>
+<ul>
+<li>empty - 没有页眉和页脚</li>
+<li>plain - 没有页眉，页脚包含一个居中的页码</li>
+<li>headings - 没有页脚，页眉包含章/节或者字节的名字和页码，可以使用 <code>\pagestyle{headings}</code> 命令来启用这个页面风格。</li>
+<li>myheadings - 没有页脚，页眉包含有页码可以使用 <code>\markboth{left}{right}</code> 命令来设置自定义的页眉内容，并使用 <code>\pagestyle{myheadings}</code> 命令来启用这个页面风格。</li>
+</ul>
+<p>你想在每一页的底部中央显示页码，可以在文档的导言区添加以下命令：</p>
+<pre class="line-numbers language-latex" data-language="latex"><code class="language-latex"><span class="token function selector">\pagestyle</span><span class="token punctuation">{</span>plain<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>默认情况下，页码从第一页开始（通常是包含标题页的）并且以阿拉伯数字形式显示（例如：1，2，3 …）。页码的编号也可以通过\setcounter{page}{number}命令手动设置，需要注意的是，手动设置可能会导致重复的页码出现。<br>\pagenumbering{style}命令则用于改变页码的显示风格。LaTeX中页码风格包含以下五类：</p>
+<ul>
+<li>arabic - 阿拉伯数字</li>
+<li>roman - 小写的罗马数字</li>
+<li>Roman - 大写的罗马数字</li>
+<li>alph - 小写的字符形式</li>
+<li>Alph -大写的字符形式</li>
+</ul>
+<pre class="line-numbers language-latex" data-language="latex"><code class="language-latex"><span class="token function selector">\documentclass</span><span class="token punctuation">{</span><span class="token keyword">article</span><span class="token punctuation">}</span>
+
+<span class="token function selector">\usepackage</span><span class="token punctuation">{</span><span class="token keyword">fontspec, xunicode, xlextra</span><span class="token punctuation">}</span>
+<span class="token function selector">\usepackage</span><span class="token punctuation">{</span><span class="token keyword">xeCJK</span><span class="token punctuation">}</span>
+
+<span class="token function selector">\title</span><span class="token punctuation">{</span><span class="token function selector">\LaTeX</span> 页码设置<span class="token punctuation">}</span>
+<span class="token function selector">\author</span><span class="token punctuation">{</span>Japinli<span class="token punctuation">}</span>
+
+<span class="token function selector">\begin</span><span class="token punctuation">{</span><span class="token keyword">document</span><span class="token punctuation">}</span>
+<span class="token function selector">\maketitle</span>
+<span class="token function selector">\thispagestyle</span><span class="token punctuation">{</span>empty<span class="token punctuation">}</span> <span class="token comment">% 当前页不显示页码</span>
+<span class="token function selector">\newpage</span>
+
+<span class="token function selector">\pagestyle</span><span class="token punctuation">{</span>headings<span class="token punctuation">}</span>
+<span class="token function selector">\setcounter</span><span class="token punctuation">{</span>page<span class="token punctuation">}</span><span class="token punctuation">{</span>1<span class="token punctuation">}</span>
+<span class="token function selector">\pagenumbering</span><span class="token punctuation">{</span>Roman<span class="token punctuation">}</span>
+
+<span class="token function selector">\section*</span><span class="token punctuation">{</span><span class="token headline class-name">前言</span><span class="token punctuation">}</span>
+学习如何在<span class="token function selector">\LaTeX</span> 中设置页码。
+<span class="token function selector">\newpage</span>
+
+<span class="token function selector">\tableofcontents</span>
+<span class="token function selector">\newpage</span>
+
+<span class="token function selector">\setcounter</span><span class="token punctuation">{</span>page<span class="token punctuation">}</span><span class="token punctuation">{</span>1<span class="token punctuation">}</span>
+<span class="token function selector">\pagenumbering</span><span class="token punctuation">{</span>arabic<span class="token punctuation">}</span>
+
+<span class="token function selector">\section</span><span class="token punctuation">{</span><span class="token headline class-name">页码风格</span><span class="token punctuation">}</span>
+
+<span class="token function selector">\LaTeX</span> 中包含五种页码风格，分别是<span class="token function selector">\emph</span><span class="token punctuation">{</span>arabic<span class="token punctuation">}</span>，<span class="token function selector">\emph</span><span class="token punctuation">{</span>roman<span class="token punctuation">}</span>，<span class="token function selector">\emph</span><span class="token punctuation">{</span>Roman<span class="token punctuation">}</span>，
+<span class="token function selector">\emph</span><span class="token punctuation">{</span>alph<span class="token punctuation">}</span>和<span class="token function selector">\emph</span><span class="token punctuation">{</span>Alph<span class="token punctuation">}</span>。
+
+<span class="token function selector">\section</span><span class="token punctuation">{</span><span class="token headline class-name">页码风格说明</span><span class="token punctuation">}</span>
+
+<span class="token function selector">\emph</span><span class="token punctuation">{</span>arabic<span class="token punctuation">}</span>代表阿拉伯数字类型。
+
+<span class="token function selector">\emph</span><span class="token punctuation">{</span>roman<span class="token punctuation">}</span>代表小写的罗马数字类型。
+
+<span class="token function selector">\emph</span><span class="token punctuation">{</span>Roman<span class="token punctuation">}</span>代表大写的罗马数字类型。
+
+<span class="token function selector">\emph</span><span class="token punctuation">{</span>alph<span class="token punctuation">}</span>代表小写的字符类型。
+
+<span class="token function selector">\emph</span><span class="token punctuation">{</span>Alph<span class="token punctuation">}</span>代表大写的字符类型。
+
+<span class="token function selector">\section</span><span class="token punctuation">{</span><span class="token headline class-name">页码风格设置</span><span class="token punctuation">}</span>
+
+为了改变页码的风格，可以使用<span class="token function selector">\emph</span><span class="token punctuation">{</span><span class="token function selector">\textbackslash</span> pagenumbering<span class="token function selector">\{</span>sytle<span class="token function selector">\}</span><span class="token punctuation">}</span>
+命令设置。
+
+<span class="token function selector">\end</span><span class="token punctuation">{</span><span class="token keyword">document</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/japinli/article/details/51418977">本节参考</a></p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://oi-wiki.org/tools/latex/">LaTeX 入门</a></p>
 <p><a target="_blank" rel="noopener" href="https://mdnice.com/writing/285dc7d7cfd54d89b0378b4e08e8c006">vs code 配置latex环境保姆级配置教程（双系统）</a></p>
 <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/110451310">MikTex + VS Code 配置教程</a></p>
