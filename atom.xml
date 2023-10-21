@@ -6,7 +6,7 @@
   <link href="https://lwqblog.top/atom.xml" rel="self"/>
   
   <link href="https://lwqblog.top/"/>
-  <updated>2023-10-20T03:33:50.484Z</updated>
+  <updated>2023-10-21T10:34:17.565Z</updated>
   <id>https://lwqblog.top/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LaTex写论文阅读笔记_文档结构</title>
+    <link href="https://lwqblog.top/2023/10/21/latex-xie-lun-wen-yue-du-bi-ji-wen-dang-jie-gou/"/>
+    <id>https://lwqblog.top/2023/10/21/latex-xie-lun-wen-yue-du-bi-ji-wen-dang-jie-gou/</id>
+    <published>2023-10-21T07:00:21.000Z</published>
+    <updated>2023-10-21T10:34:17.565Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;文档结构&quot;&gt;&lt;a href=&quot;#文档结构&quot; class=&quot;headerlink&quot; title=&quot;文档结构&quot;&gt;&lt;/a&gt;文档结构&lt;/h2&gt;&lt;h3 id=&quot;基本要素&quot;&gt;&lt;a href=&quot;#基本要素&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="LaTex" scheme="https://lwqblog.top/categories/LaTex/"/>
+    
+    
+    <category term="LaTex" scheme="https://lwqblog.top/tags/LaTex/"/>
+    
+  </entry>
   
   <entry>
     <title>软件安全实验_1</title>
