@@ -56,9 +56,9 @@ from clip import tokenize, load_m">
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="LWQ" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="LWQ" type="application/atom+xml">
 </head>
 
 
@@ -536,8 +536,12 @@ paths<span class="token punctuation">.</span>sort<span class="token punctuation"
 <span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>preprocessing <span class="token keyword">import</span> normalize
 <span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+
+
 <p>加载预训练模型</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">model<span class="token punctuation">,</span> transforms <span class="token operator">=</span> load_model<span class="token punctuation">(</span><span class="token string">'ViT_B_32'</span><span class="token punctuation">,</span> pretrained<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
 
 <p>创建字典变量用于输入文本信息</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">en_match_words <span class="token operator">=</span> <span class="token punctuation">{</span>
@@ -552,6 +556,8 @@ paths<span class="token punctuation">.</span>sort<span class="token punctuation"
 <span class="token string">"closest_participants_behavior"</span> <span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"slow down"</span><span class="token punctuation">,</span><span class="token string">"go straight"</span><span class="token punctuation">,</span><span class="token string">"turn right"</span><span class="token punctuation">,</span><span class="token string">"turn left"</span><span class="token punctuation">,</span><span class="token string">"stop"</span><span class="token punctuation">,</span><span class="token string">"U-turn"</span><span class="token punctuation">,</span><span class="token string">"speed up"</span><span class="token punctuation">,</span><span class="token string">"lane change"</span><span class="token punctuation">,</span><span class="token string">"others"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+
+
 <p>定义输出json文件的基本内容的字典</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">submit_json <span class="token operator">=</span> <span class="token punctuation">{</span>
     <span class="token string">"author"</span> <span class="token punctuation">:</span> <span class="token string">"abc"</span> <span class="token punctuation">,</span>
@@ -560,11 +566,16 @@ paths<span class="token punctuation">.</span>sort<span class="token punctuation"
     <span class="token string">"test_results"</span> <span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+
+
 <p>获取视频地址</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">paths <span class="token operator">=</span> glob<span class="token punctuation">.</span>glob<span class="token punctuation">(</span><span class="token string">'./初赛测试视频/*'</span><span class="token punctuation">)</span>
 paths<span class="token punctuation">.</span>sort<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
+
+
 <p>接下来核心部分是一个循环，对给定的视频路径列表进行迭代，并依次处理每个视频。</p>
+<p>具体分析内容在注释部分</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">for</span> video_path <span class="token keyword">in</span> paths<span class="token punctuation">:</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span>video_path<span class="token punctuation">)</span>
     
@@ -605,6 +616,8 @@ paths<span class="token punctuation">.</span>sort<span class="token punctuation"
         single_video_result<span class="token punctuation">[</span>keyword<span class="token punctuation">]</span> <span class="token operator">=</span> texts<span class="token punctuation">[</span>probs<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>argsort<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
         
     submit_json<span class="token punctuation">[</span><span class="token string">"test_results"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>single_video_result<span class="token punctuation">)</span><span class="token comment">#推理结果添加</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
 
 <p>最后结果写入clip_result.json</p>
 <p>‘w’写入模式，并指定编码encoding为UTF-8,不会进行ASCII编码ensure_ascii=False（即确保写入的文件中可以包含非ASCII字符）</p>
