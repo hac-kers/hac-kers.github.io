@@ -6,7 +6,7 @@
   <link href="https://lwqblog.top/atom.xml" rel="self"/>
   
   <link href="https://lwqblog.top/"/>
-  <updated>2023-10-23T08:31:04.762Z</updated>
+  <updated>2023-11-15T14:49:01.662Z</updated>
   <id>https://lwqblog.top/</id>
   
   <author>
@@ -15,6 +15,59 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Datawhale智能汽车多模态(1)--读懂Baseline</title>
+    <link href="https://lwqblog.top/2023/11/15/datawhale-zhi-neng-qi-che-duo-mo-tai-1-du-dong-baseline/"/>
+    <id>https://lwqblog.top/2023/11/15/datawhale-zhi-neng-qi-che-duo-mo-tai-1-du-dong-baseline/</id>
+    <published>2023-11-15T14:10:44.000Z</published>
+    <updated>2023-11-15T14:49:01.662Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;赛题：智能驾驶汽车虚拟仿真视频数据理解赛道&quot;&gt;&lt;a href=&quot;#赛题：智能驾驶汽车虚拟仿真视频数据理解赛道&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="DL" scheme="https://lwqblog.top/categories/DL/"/>
+    
+    
+    <category term="clip" scheme="https://lwqblog.top/tags/clip/"/>
+    
+    <category term="DL" scheme="https://lwqblog.top/tags/DL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>位运算</title>
+    <link href="https://lwqblog.top/2023/11/01/wei-yun-suan/"/>
+    <id>https://lwqblog.top/2023/11/01/wei-yun-suan/</id>
+    <published>2023-11-01T13:50:01.000Z</published>
+    <updated>2023-11-02T12:47:03.230Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;原题&quot;&gt;&lt;a href=&quot;#原题&quot; class=&quot;headerlink&quot; title=&quot;原题&quot;&gt;&lt;/a&gt;原题&lt;/h3&gt;&lt;p&gt;给定一个长度为 n 的数列，请你求出数列中每个数的二进制表示中 11 的个数。&lt;/p&gt;
+&lt;h4 id=&quot;输入格式&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="算法" scheme="https://lwqblog.top/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="算法" scheme="https://lwqblog.top/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>二分(算法)</title>
